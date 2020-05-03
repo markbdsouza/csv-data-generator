@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV File Generator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="header-section">
+        <h1>CSV File Generator</h1>
+        <div class="info">This tool makes it easy to generate meaningful data in a csv format </div>
+    </div>
+
+    <div class="main-container">
+        <div class="config">
+            <label for="row-count">Number of Rows</label>
+            <input type="number" class="row-count" value="20" name="row-count" id="row-count" max="1000">
+        </div>
+
+        <div class="data-input-container">
+            <div class="row header" id="tableColNames">
+                <div class="column">Column Name</div>
+                <div class="column">Type of Data</div>
+                <div class="column">Config</div>
+                <div class="column">Actions</div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <input type="text" class="columnName" value="test1">
+                </div>
+                <div class="column">
+                    <select class="optionsForData">
+                        <option value="random">Random Data</option>
+                        <option value="data">data</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <input type="text" class="columnName" value="test1">
+                </div>
+                <div class="column">
+                    <input type="text" class="columnName" value="test1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <input type="text" class="columnName" value="test1">
+                </div>
+                <div class="column">
+                    <select class="optionsForData">
+                        <option value="random">Random Data</option>
+                        <option value="data">data</option>
+                    </select>
+                </div>
+                <div class="column"><input type="text" class="columnName" value="test1">
+                </div>
+                <div class="column">
+                    <span>Config Type:</span><input type="text" class="columnName" value="test1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <input type="text" class="columnName" value="test1">
+                </div>
+                <div class="column">
+                    <select class="optionsForData">
+                        <option value="random">Random Data</option>
+                        <option value="data">data</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <input type="text" class="columnName" value="test1">
+                </div>
+                <div class="column">
+                    asd
+                </div>
+            </div>
+
+        </div>
+
+        <div class="columns">
+
+            <!-- 
+
+
+            <table id="respTable">
+                <thead>
+                    <tr>
+                        <th>Column Name</th>
+                        <th>Type of Data</th>
+                        <th>Configuration</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>D.O.B.</th>
+                        <th>Experience</th>
+                        <th>From</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="columnName" value="test1"></td>
+                    <td>
+                        <select class="optionsForData">
+                            <option value="random">Random Data</option>
+                            <option value="data">data</option>
+                        </select>
+                    </td>
+                    <td>Config Type: <input type="text" class="columnName" value="test1"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="columnName" value="test1"></td>
+                    <td>
+                        <select class="optionsForData">
+                            <option value="random">Random Data</option>
+                            <option value="data">data</option>
+                        </select>
+                    </td>
+                    <td> <span>Config Type:</span> <input type="text" class="columnName" value="test1"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="columnName" value="test1"></td>
+                    <td>
+                        <select class="optionsForData">
+                            <option value="random">Random Data</option>
+                            <option value="data">data</option>
+                        </select>
+                    </td>
+                    <td> <span>Config Type:</span> <input type="text" class="columnName" value="test1"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="columnName" value="test1"></td>
+                    <td>
+                        <select class="optionsForData">
+                            <option value="random">Random Data</option>
+                            <option value="data">data</option>
+                        </select>
+                    </td>
+                    <td> <span>Config Type:</span> <input type="text" class="columnName" value="test1"></td>
+                </tr>
+            </tbody>
+            </table> -->
+
+
+        </div>
+        <div class="btn-container">
+            <button class="btn" id="add-row">Add New Row</button>
+            <button class="btn" id="generate-button">Generate File</button>
+        </div>
+
+    </div>
+
+
+    <footer>
+        This was generated by Mark D'Souza
+    </footer>
+    <script src="./scripts/script.js" type="module"></script>
+</body>
+
+</html>
