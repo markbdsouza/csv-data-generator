@@ -4,11 +4,14 @@ import { cellHeaders } from './tableScript.js';
 const generateBtn = document.getElementById('generate-button');
 const rowCountEl = document.getElementById('row-count');
 const dataInputContainer = document.querySelector('.data-input-container');
+const header = document.querySelector('.header-section');
+const introduction = document.querySelector('.introduction');
 
 let rowCount;
 let rows = [];
 let columnHeaders = [];
 let DOMrows = [];
+let i = 1;
 
 function fetchDOMValues() {
   columnHeaders = [];
@@ -41,12 +44,14 @@ function setRowData() {
   rows.push([columnHeaders]);
 }
 
-function addToDOMRows(index = 0) {
+function addToDOMRows(rowClicked) {
   const existingMaxIndex = DOMrows.length;
 
-  let newRowHTML = `<div class="row">
-  <div class="column">
-  <input type="text" class="columnName" value="test1">
+  const newRow = document.createElement('div');
+  newRow.classList.add('row');
+  newRow.classList.add('hide');
+  newRow.innerHTML = `  <div class="column">
+  <input type="text" class="columnName" value="test${i + 1}">
 </div>
 <div class="column">
   <select class="select-css">
@@ -60,22 +65,49 @@ function addToDOMRows(index = 0) {
 <div class="column actions">
   <i class="far fa-plus-square fa-2x add"></i>
   <i class="fas fa-trash-alt fa-2x delete"></i>
-  </div></div>`;
-  dataInputContainer.insertAdjacentHTML('beforeend', newRowHTML);
+  </div>`;
+
+  DOMrows.push(newRow);
+
+  if (rowClicked) {
+    rowClicked.insertAdjacentElement('afterend', newRow);
+  } else {
+    dataInputContainer.insertAdjacentElement('beforeend', newRow);
+  }
+
+  setTimeout(() => {
+    newRow.classList.remove('hide');
+  }, 100);
+
+  i++;
 }
 
 function documentClick(e) {
+  const parentRow = e.target.closest('.row');
   if (e.target.classList.contains('add')) {
-    addToDOMRows();
+    addToDOMRows(parentRow);
   }
   if (e.target.classList.contains('delete')) {
-    deleteRowFromDOM(e.target);
+    deleteRowFromDOM(parentRow);
   }
 }
 
-function deleteRowFromDOM(e) {
-  const parentRow = e.closest('.row');
-  dataInputContainer.removeChild(parentRow);
+function deleteRowFromDOM(parentRow) {
+  parentRow.classList.add('hide');
+  setTimeout(() => {
+    dataInputContainer.removeChild(parentRow);
+    console.log(DOMrows);
+    DOMrows = DOMrows.filter((row) => {
+      console.log(row);
+      console.log(parentRow.outerHTML);
+
+      return row !== parentRow;
+    });
+    if (DOMrows.length === 0) {
+      addToDOMRows();
+    }
+    console.log(DOMrows);
+  }, 600);
 }
 
 //event listeners
@@ -89,3 +121,8 @@ generateBtn.addEventListener('click', () => {
 // cellHeaders('respTable');
 
 document.addEventListener('click', documentClick);
+document.addEventListener('click', (e) => {
+  introduction.style.display = 'none';
+});
+
+addToDOMRows();

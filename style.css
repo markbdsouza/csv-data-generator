@@ -24,6 +24,32 @@ body {
   background-color: #32ff7e;
   color: #3d3d3d;
   font-weight: bold;
+  transition: all 1s ease-in;
+  transform: translateY(0);
+}
+
+.introduction {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  margin: 0;
+  background-color: khaki;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.introduction .intro-details {
+  width: 60%;
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  padding: 30px 0 0;
 }
 
 .main-container {
@@ -180,10 +206,15 @@ td::before {
 
 .row {
   display: flex;
-
   width: 100%;
   align-items: stretch;
   justify-content: center;
+  transition: all 0.6s ease-in-out;
+  transform: translateX(0%);
+}
+
+.row.hide {
+  transform: translateX(-200%);
 }
 
 .column {
