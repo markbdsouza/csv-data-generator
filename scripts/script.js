@@ -3,10 +3,12 @@ import { cellHeaders } from './tableScript.js';
 
 const generateBtn = document.getElementById('generate-button');
 const rowCountEl = document.getElementById('row-count');
+const dataInputContainer = document.querySelector('.data-input-container');
 
 let rowCount;
 let rows = [];
 let columnHeaders = [];
+let DOMrows = [];
 
 function fetchDOMValues() {
   columnHeaders = [];
@@ -39,6 +41,43 @@ function setRowData() {
   rows.push([columnHeaders]);
 }
 
+function addToDOMRows(index = 0) {
+  const existingMaxIndex = DOMrows.length;
+
+  let newRowHTML = `<div class="row">
+  <div class="column">
+  <input type="text" class="columnName" value="test1">
+</div>
+<div class="column">
+  <select class="select-css">
+      <option value="random">Random Data</option>
+      <option value="data">data</option>
+  </select>
+</div>
+<div class="column">
+  <input type="text" class="columnName" value="test1">
+</div>
+<div class="column actions">
+  <i class="far fa-plus-square fa-2x add"></i>
+  <i class="fas fa-trash-alt fa-2x delete"></i>
+  </div></div>`;
+  dataInputContainer.insertAdjacentHTML('beforeend', newRowHTML);
+}
+
+function documentClick(e) {
+  if (e.target.classList.contains('add')) {
+    addToDOMRows();
+  }
+  if (e.target.classList.contains('delete')) {
+    deleteRowFromDOM(e.target);
+  }
+}
+
+function deleteRowFromDOM(e) {
+  const parentRow = e.closest('.row');
+  dataInputContainer.removeChild(parentRow);
+}
+
 //event listeners
 generateBtn.addEventListener('click', () => {
   fetchDOMValues();
@@ -48,3 +87,5 @@ generateBtn.addEventListener('click', () => {
   generateFile(rows);
 });
 // cellHeaders('respTable');
+
+document.addEventListener('click', documentClick);

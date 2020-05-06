@@ -21,6 +21,9 @@
         <div class="config">
             <label for="row-count">Number of Rows</label>
             <input type="number" class="row-count" value="20" name="row-count" id="row-count" max="1000">
+            <div class="help-tip">
+                <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
+            </div>
         </div>
 
         <div class="data-input-container">
@@ -35,7 +38,7 @@
                     <input type="text" class="columnName" value="test1">
                 </div>
                 <div class="column">
-                    <select class="optionsForData">
+                    <select class="select-css">
                         <option value="random">Random Data</option>
                         <option value="data">data</option>
                     </select>
@@ -43,11 +46,12 @@
                 <div class="column">
                     <input type="text" class="columnName" value="test1">
                 </div>
-                <div class="column">
-
+                <div class="column actions">
+                    <i class="far fa-plus-square fa-2x add"></i>
+                    <i class="fas fa-trash-alt fa-2x delete"></i>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="column">
                     <input type="text" class="columnName" value="test1">
                 </div>
@@ -59,8 +63,9 @@
                 </div>
                 <div class="column"><input type="text" class="columnName" value="test1">
                 </div>
-                <div class="column">
-                    <span>Config Type:</span><input type="text" class="columnName" value="test1">
+                <div class="column actions">
+                    <i class="far fa-plus-square fa-2x"></i>
+                    <i class="fas fa-trash-alt fa-2x"></i>
                 </div>
             </div>
             <div class="row">
@@ -80,7 +85,7 @@
                     <i class="far fa-plus-square fa-2x"></i>
                     <i class="fas fa-trash-alt fa-2x"></i>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
