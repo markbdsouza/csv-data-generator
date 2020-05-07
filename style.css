@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+:root {
+  --header-color: ;
+  --background-color: rgb(83, 92, 104);
+}
 
 * {
   box-sizing: border-box;
@@ -14,8 +20,10 @@ body {
   position: relative;
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
-  background-color: #3d3d3d;
+  background-color: rgb(83, 92, 104);
   color: #ffcccc;
+  margin: 0;
+  padding: 0;
 }
 
 /* The main cover page on navigating to the screen */
@@ -37,6 +45,7 @@ body {
   z-index: 1;
   transition: all 1s ease-out;
   opacity: 1;
+  font-family: 'Patrick Hand', cursive;
 }
 
 .introduction.hide {
@@ -63,13 +72,14 @@ body {
 
 .introduction h1 {
   z-index: 1;
-  font-size: 5rem;
+  font-size: 6rem;
 }
+
 .introduction .intro-details {
   width: 75%;
   text-align: justify;
   line-height: 1.4;
-  font-size: 2rem;
+  font-size: 3rem;
   padding: 30px 0 0;
   color: white;
   z-index: 1;
@@ -91,11 +101,14 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   padding: 1rem;
-  background-color: #32ff7e;
+  background-color: rgb(106, 176, 76);
   color: #3d3d3d;
   font-weight: bold;
   transition: all 1s ease-in;
   transform: translateY(0);
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.8rem;
+  padding: 0.5rem 3rem;
 }
 
 /* The main container holds the configuration and the table container*/
@@ -208,7 +221,7 @@ input,
 
 footer {
   width: 100%;
-  background-color: #fffa65;
+  background-color: rgb(106, 176, 76);
   color: black;
   margin: 0 auto;
   align-items: center;
@@ -378,6 +391,7 @@ footer {
   line-height: 1.6;
 }
 
-.additional-details h3 {
+.additional-details h3,
+.additional-details p {
   margin-top: 2rem;
 }
