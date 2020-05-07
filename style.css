@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+html {
+  font-size: 10px;
+}
+
 body {
   position: relative;
   min-height: 100vh;
@@ -14,10 +18,76 @@ body {
   color: #ffcccc;
 }
 
-.header-section {
-  display: Flex;
+/* The main cover page on navigating to the screen */
+.introduction {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 1;
+  margin: 0;
+  color: white;
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background: url('./images/campaign-creators-pypeCEaJeZY-unsplash.jpg') center
+    center;
+  z-index: 1;
+  transition: all 1s ease-out;
+  opacity: 1;
+}
+
+.introduction.hide {
+  opacity: 0;
+}
+
+.introduction::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.introduction button {
+  z-index: 1;
+  display: block;
+  width: 50%;
+  padding: 20px;
+  font-size: 2rem;
+}
+
+.introduction h1 {
+  z-index: 1;
+  font-size: 5rem;
+}
+.introduction .intro-details {
+  width: 75%;
+  text-align: justify;
+  line-height: 1.4;
+  font-size: 2rem;
+  padding: 30px 0 0;
+  color: white;
+  z-index: 1;
+}
+
+.introduction .intro-footer {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+}
+
+#main-content {
+  display: none;
+}
+/* Header of the screen */
+.header-section {
+  display: Flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -28,35 +98,90 @@ body {
   transform: translateY(0);
 }
 
-.introduction {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  margin: 0;
-  background-color: khaki;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.introduction .intro-details {
-  width: 60%;
-  text-align: justify;
-  line-height: 1.5;
-  font-size: 1.5rem;
-  padding: 30px 0 0;
-}
-
+/* The main container holds the configuration and the table container*/
 .main-container {
   display: Flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.config {
+  padding: 2rem 3rem;
+  border: 1px solid #fff;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* holds the entire table */
+.data-input-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+
+  align-items: center;
+  /* border-radius: 50%; */
+  /* border: 1px solid; */
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+  transition: all 0.6s ease-in-out;
+  transform: translateX(0%);
+  opacity: 1;
+}
+.row.hide {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.row:nth-child(odd) {
+  background-color: rgba(34, 166, 179, 1);
+}
+
+.row:nth-child(even) {
+  background-color: rgba(199, 236, 238, 1);
+}
+.row:first-child {
+  background-color: rgba(19, 15, 64, 1);
+  color: rgba(223, 249, 251, 1);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.row:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.column {
+  width: 33.3%;
+  padding: 1rem 2rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #3c3c3b;
+  height: initial;
+}
+
+input,
+.optionsForData {
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.actions button {
+  cursor: pointer;
+  display: relative;
+  border: 0;
+  margin: 0;
+  background-color: transparent;
+  outline: 0;
 }
 
 .btn-container {
@@ -73,172 +198,30 @@ body {
   border: 2px solid rgba(255, 77, 77, 0.4);
   transform: translateX(0);
   transition: transform 0.5s ease-in;
+  outline: 0;
 }
 
 .btn:hover {
   border: 2px solid rgba(255, 56, 56, 1);
-  transform: translateY(-3px);
-}
-
-.config {
-  padding: 2rem 3rem;
-  border: 1px solid #fff;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-input,
-.optionsForData {
-  border-radius: 5px;
-  padding: 5px 10px;
-}
-
-.actions i {
-  cursor: pointer;
+  transform: translateY(-10px);
 }
 
 footer {
-  position: absolute;
   width: 100%;
   background-color: #fffa65;
   color: black;
-  bottom: 0;
-  left: 0;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
   text-align: center;
   border: 1px solid;
   padding: 1rem 0 0.5rem;
-}
-/* 
-table {
-  max-width: 100%;
-}
-
-tr:nth-child(odd) {
-  background-color: rgba(23, 192, 235, 0.6);
-}
-
-tr:nth-child(even) {
-  background-color: rgba(23, 192, 235, 0.3);
-}
-
-th {
-  background-color: #555;
-  color: #fff;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 0.5em 1em;
-}
-
-td::before {
-  display: none;
-}
-
-@media screen and (max-width: 680px) {
-  table {
-    border: 0;
-    display: block;
-    box-shadow: none;
-  }
-
-  thead {
-    position: absolute;
-    opacity: 0;
-  }
-
-  tbody {
-    display: block;
-    width: 100%;
-    min-width: 19em;
-    max-width: 25em;
-  }
-
-  tr {
-    border-top: 2px solid #3c3c3b;
-    border-bottom: 1px solid #3c3c3b;
-    display: grid;
-    grid-template-columns: max-content auto;
-    margin-bottom: 1em;
-  }
-
-  td {
-    display: contents;
-  }
-
-  td::before {
-    display: inline-block;
-    font-weight: bold;
-    padding: 0.5em;
-    border-bottom: 1px solid;
-  }
-
-  td span {
-    padding: 0.5em;
-    border-bottom: 1px solid;
-  }
-
-  td:last-child {
-    border-bottom: 0;
-  }
-} */
-
-.data-input-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 1200px;
-  width: 100%;
-  border: 1px solid;
-  align-items: center;
+  margin-top: 2rem;
 }
 
 .header {
-  font-size: 1.2rem;
+  font-size: 3rem;
   font-weight: bold;
-}
-
-.row {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-  justify-content: center;
-  transition: all 0.6s ease-in-out;
-  transform: translateX(0%);
-}
-
-.row.hide {
-  transform: translateX(-200%);
-}
-
-.column {
-  width: 33.3%;
-  padding: 1rem 2rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  /* border: 1px solid; */
-  /* border-top: 2px solid #3c3c3b; */
-  border: 1px solid #3c3c3b;
-  height: initial;
-}
-#tableColNames {
-  background-color: rgba(103, 230, 220, 1);
-  color: rgb(14, 51, 58);
-}
-
-.row:nth-child(odd) {
-  background-color: rgba(23, 192, 235, 0.6);
-}
-
-.row:nth-child(even) {
-  background-color: rgba(23, 192, 235, 0.3);
 }
 
 .help-tip {
@@ -250,7 +233,7 @@ td::before {
   border-radius: 50%;
   width: 24px;
   height: 24px;
-  font-size: 14px;
+  font-size: 2rem;
   line-height: 26px;
   cursor: default;
 }
@@ -281,7 +264,7 @@ td::before {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   right: -4px;
   color: #fff;
-  font-size: 13px;
+  font-size: 1, 5rem;
   line-height: 1.4;
 }
 
@@ -332,7 +315,7 @@ td::before {
 
 .select-css {
   display: block;
-  font-size: 16px;
+  font-size: 2rem;
   font-family: sans-serif;
   font-weight: 700;
   color: #444;
@@ -370,4 +353,31 @@ td::before {
 }
 .select-css option {
   font-weight: normal;
+}
+
+.actions button .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 8px 8px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.actions button:hover .tooltiptext {
+  visibility: visible;
+}
+
+.additional-details {
+  font-size: 2rem;
+  padding: 1rem 5rem;
+  line-height: 1.6;
+}
+
+.additional-details h3 {
+  margin-top: 2rem;
 }

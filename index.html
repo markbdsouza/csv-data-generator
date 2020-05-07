@@ -15,170 +15,110 @@
         <h1>CSV File Generator</h1>
         <p class='intro-details'>Welcome to the one stop solution for all your data generating needs
             # Include GRID for use cases
+            <br>
             Are you looking to test your application and need a LOT of data to see how much your app can handle?
+            <br>
             Or Maybe you are working on a report and need more source data?
+            <br>
             Do you have a client demo and you dont want to display asdasd on qwerty as values in your data base?
             <br>
             This app can help you achieve just that! It can create MEANGINGFUL data for your needs
-            NO INSTALLATIONS. NO SETUP. NO ADS.
+            <br>
+            NO INSTALLATIONS. NO SETUP. NO ADS. NO SIGNIN
+
+            <br>
             Fast simple effiecient.
             <br>
             FILL in what Data you want, and download! you're done !!
             <br><br>
-
-            <small>This works best on a laptop on a Chrome Browser</small>
+            <small class="intro-footer">This works best on a laptop on a Chrome Browser</small>
         </p>
-    </div>
-
-    <div class="header-section cover">
-        <h1>CSV File Generator</h1>
-        <div class="info">This tool makes it easy to generate meaningful data in a csv format </div>
-    </div>
-
-    <div class="main-container">
-        <div class="config">
-            <label for="row-count">Number of Rows</label>
-            <input type="number" class="row-count" value="20" name="row-count" id="row-count" max="1000">
-            <div class="help-tip">
-                <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
-            </div>
-        </div>
-
-        <div class="data-input-container">
-            <div class="row header" id="tableColNames">
-                <div class="column">Column Name</div>
-                <div class="column">Type of Data</div>
-                <div class="column">Config</div>
-                <div class="column">Actions</div>
-            </div>
-            <!-- <div class="row">
-                <div class="column">
-                    <input type="text" class="columnName" value="test1">
-                </div>
-                <div class="column">
-                    <select class="select-css">
-                        <option value="random">Random Data</option>
-                        <option value="data">data</option>
-                    </select>
-                </div>
-                <div class="column">
-                    <input type="text" class="columnName" value="test1">
-                </div>
-                <div class="column actions">
-                    <i class="far fa-plus-square fa-2x add"></i>
-                    <i class="fas fa-trash-alt fa-2x delete"></i>
-                </div>
-            </div> -->
-            <!-- <div class="row">
-                <div class="column">
-                    <input type="text" class="columnName" value="test1">
-                </div>
-                <div class="column">
-                    <select class="optionsForData">
-                        <option value="random">Random Data</option>
-                        <option value="data">data</option>
-                    </select>
-                </div>
-                <div class="column"><input type="text" class="columnName" value="test1">
-                </div>
-                <div class="column actions">
-                    <i class="far fa-plus-square fa-2x"></i>
-                    <i class="fas fa-trash-alt fa-2x"></i>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <input type="text" class="columnName" value="test1">
-                </div>
-                <div class="column">
-                    <select class="optionsForData">
-                        <option value="random">Random Data</option>
-                        <option value="data">data</option>
-                    </select>
-                </div>
-                <div class="column">
-                    <input type="text" class="columnName" value="test1">
-                </div>
-                <div class="column">
-                    <i class="far fa-plus-square fa-2x"></i>
-                    <i class="fas fa-trash-alt fa-2x"></i>
-                </div>
-            </div> -->
-
-        </div>
-
-        <div class="columns">
-
-            <!-- 
-
-
-            <table id="respTable">
-                <thead>
-                    <tr>
-                        <th>Column Name</th>
-                        <th>Type of Data</th>
-                        <th>Configuration</th>
-                        <th>Height</th>
-                        <th>Weight</th>
-                        <th>D.O.B.</th>
-                        <th>Experience</th>
-                        <th>From</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="text" class="columnName" value="test1"></td>
-                    <td>
-                        <select class="optionsForData">
-                            <option value="random">Random Data</option>
-                            <option value="data">data</option>
-                        </select>
-                    </td>
-                    <td>Config Type: <input type="text" class="columnName" value="test1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="columnName" value="test1"></td>
-                    <td>
-                        <select class="optionsForData">
-                            <option value="random">Random Data</option>
-                            <option value="data">data</option>
-                        </select>
-                    </td>
-                    <td> <span>Config Type:</span> <input type="text" class="columnName" value="test1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="columnName" value="test1"></td>
-                    <td>
-                        <select class="optionsForData">
-                            <option value="random">Random Data</option>
-                            <option value="data">data</option>
-                        </select>
-                    </td>
-                    <td> <span>Config Type:</span> <input type="text" class="columnName" value="test1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="columnName" value="test1"></td>
-                    <td>
-                        <select class="optionsForData">
-                            <option value="random">Random Data</option>
-                            <option value="data">data</option>
-                        </select>
-                    </td>
-                    <td> <span>Config Type:</span> <input type="text" class="columnName" value="test1"></td>
-                </tr>
-            </tbody>
-            </table> -->
-
-
-        </div>
-        <div class="btn-container">
-            <button class="btn" id="add-row">Add New Row</button>
-            <button class="btn" id="generate-button">Generate File</button>
-        </div>
-
+        <button class="btn" id='getStarted'>Get Started</button>
     </div>
 
 
+    <div id="main-content">
+        <div class="header-section cover">
+            <h1>CSV File Generator</h1>
+            <div class="info">This tool makes it easy to generate meaningful data in a csv format </div>
+        </div>
+
+        <div class="main-container">
+            <div class="config">
+                <label for="row-count">Number of Rows</label>
+                <input type="number" class="row-count" value="20" name="row-count" id="row-count" max="1000">
+                <div class="help-tip">
+                    <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
+                </div>
+            </div>
+
+            <div class="data-input-container">
+                <div class="row header" id="tableColNames">
+                    <div class="column">Column Name</div>
+                    <div class="column">Type of Data</div>
+                    <!-- <div class="column">Config</div> -->
+                    <div class="column">Actions</div>
+                </div>
+            </div>
+
+            <div class="columns">
+            </div>
+
+            <div class="btn-container">
+                <button class="btn" id="add-row">Add New Row</button>
+                <button class="btn" id="generate-button">Generate File</button>
+            </div>
+
+
+            <div class="additional-details">
+                <h3>Why is test data important?</h3>
+                <p> If you're developing an application, you'll want to make sure you're testing it under conditions
+                    that
+                    closely simulate a production environment. In production, you'll have an army of users banging away
+                    at
+                    your
+                    app and filling your database with data, which puts stress on your code. If you're hand-entering
+                    data
+                    into a
+                    test environment one record at a time using the UI, you're never going to build up the volume and
+                    variety of
+                    data that your app will accumulate in a few days in production. Worse, the data you enter will be
+                    biased
+                    towards your own usage patterns and won't match real-world usage, leaving important bugs
+                    undiscovered.
+                </p>
+                <h3>Why is realistic data important?</h3>
+                <p>When your test database is filled with realistic looking data, you'll be more engaged as a tester.
+                    When you
+                    demonstrate new features to others, they'll understand them faster. Real data is varied and will
+                    contain
+                    characters that may not play nice with your code, such as apostrophes, or unicode characters from
+                    other
+                    languages. Testing with realistic data will make your app more robust because you'll catch errors
+                    that
+                    are
+                    likely to occur in production before release day.
+                </p>
+                <h3>Why Mockaroo?</h3>
+                <p>There are plenty of great data mocking libraries available for almost every language and platform.
+                    But not
+                    everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and
+                    easily
+                    to
+                    download large amounts of randomly generated test data based on your own specs which you can then
+                    load
+                    directly into your test environment using SQL or CSV formats. No programming is required.
+                </p>
+                <h3>Want to automate test data generation?</h3>
+                <p>If you sign in using your Google account, you can download random data programmatically by saving
+                    your
+                    schemas and using curl to download data in a shell script via a RESTful url.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
     <footer>
         This was generated by Mark D'Souza
     </footer>
