@@ -4,6 +4,7 @@
 :root {
   --header-color: ;
   --background-color: rgb(83, 92, 104);
+  --btn-bg: rgba(255, 77, 77, 0.4);
 }
 
 * {
@@ -20,7 +21,7 @@ body {
   position: relative;
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
-  background-color: rgb(83, 92, 104);
+  background-color: var(--background-color);
   color: #ffcccc;
   margin: 0;
   padding: 0;
@@ -208,7 +209,7 @@ input,
   cursor: pointer;
   background-image: linear-gradient(to top left, #ff9f1a, #ff3838);
   border: 0;
-  border: 2px solid rgba(255, 77, 77, 0.4);
+  border: 2px solid var(--btn-bg);
   transform: translateX(0);
   transition: transform 0.5s ease-in;
   outline: 0;
