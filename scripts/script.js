@@ -1,5 +1,9 @@
 import { generateFile } from './filegeneration.js';
 import { cellHeaders } from './tableScript.js';
+import {
+  generateDataArrayForColumn,
+  createExcelRowData,
+} from './datageneration.js';
 
 const generateBtn = document.getElementById('generate-button');
 const rowCountEl = document.getElementById('row-count');
@@ -19,31 +23,9 @@ function fetchDOMValues() {
   columnHeaders = [];
   rowCount = +rowCountEl.value;
   const columnHeaderEl = document.querySelectorAll('.columnName');
-  console.log(columnHeaderEl);
   columnHeaderEl.forEach((col) => {
     columnHeaders.push(col.value);
   });
-}
-
-function generateRandomData() {
-  rows = [];
-  let columnCountArray = Array.from(Array(rowCount), (x, i) => i);
-  columnCountArray.forEach((x, i) => {
-    rows.push([`${i + 1}`, 'omg']);
-  });
-}
-
-function generateRows() {
-  let rows = [
-    ['asd', 'city1', 'some other info'],
-    ['name2', 'city2', 'more info'],
-  ];
-  return rows;
-}
-
-function setRowData() {
-  rows = [];
-  rows.push([columnHeaders]);
 }
 
 function addToDOMRows(rowClicked) {
@@ -61,7 +43,7 @@ function addToDOMRows(rowClicked) {
       <option value="data">data</option>
   </select>
 </div>
-<div class="column actions">
+<div class="actions">
   <button class="add"> <i class="far fa-plus-square fa-2x add"></i><span class="tooltiptext">Add a New Row</span></button>
   <button class="delete"> <i class="fas fa-trash-alt fa-2x delete"></i><span class="tooltiptext">Delete Existing Row</span></button>
   
@@ -84,7 +66,6 @@ function addToDOMRows(rowClicked) {
 
 function documentClick(e) {
   const parentRow = e.target.closest('.row');
-  console.log(e.target);
   if (e.target.classList.contains('add')) {
     addToDOMRows(parentRow);
   }
@@ -97,7 +78,6 @@ function deleteRowFromDOM(parentRow) {
   parentRow.classList.add('hide');
   setTimeout(() => {
     dataInputContainer.removeChild(parentRow);
-    console.log(DOMrows);
     DOMrows = DOMrows.filter((row) => {
       console.log(row);
       console.log(parentRow.outerHTML);
@@ -107,27 +87,54 @@ function deleteRowFromDOM(parentRow) {
     if (DOMrows.length === 0) {
       addToDOMRows();
     }
-    console.log(DOMrows);
   }, 600);
 }
 
-//event listeners
-generateBtn.addEventListener('click', () => {
-  fetchDOMValues();
-  //generateRandomData();
-  setRowData();
-  //   console.log(rows);
-  generateFile(rows);
-});
-// cellHeaders('respTable');
-
-document.addEventListener('click', documentClick);
-getStarted.addEventListener('click', (e) => {
+function loadMainContainer() {
   introduction.classList.add('hide');
   mainContent.style.display = 'inline';
   setTimeout(() => {
     introduction.style.display = 'none';
   }, 1000);
+}
+
+let dataConfig = [
+  {
+    columnName: 'col1',
+    type: 'index',
+    maxLength: 100,
+    minLength: 0,
+    nullable: false,
+  },
+  {
+    columnName: 'col2',
+    type: 'randomInteger',
+    maxLength: 100,
+    minLength: 0,
+    nullable: false,
+  },
+  {
+    columnName: 'col3',
+    type: 'randomCharacter',
+    maxLength: 100,
+    minLength: 0,
+    nullable: false,
+  },
+];
+
+//event listeners
+generateBtn.addEventListener('click', () => {
+  fetchDOMValues();
+  // generateRandomData();
+
+  rows = createExcelRowData(rowCount, dataConfig);
+  console.log(rows);
+
+  // generateFile(rows);
 });
 
+document.addEventListener('click', documentClick);
+getStarted.addEventListener('click', loadMainContainer);
 addToDOMRows();
+
+// console.log(generateDataArrayForColumn(10, 'index'));
