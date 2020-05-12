@@ -229,6 +229,7 @@ body {
   transform: translateX(0);
   transition: transform 0.5s ease-in;
   outline: 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .btn:hover {
@@ -412,4 +413,58 @@ input:focus,
 .additional-details h3,
 .additional-details p {
   margin-top: 2rem;
+}
+
+.select-input-background {
+  display: none;
+}
+
+.select-input-background.show {
+  display: inline;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+.select-input-background.show .select-input-container {
+  transform: translateY(75%);
+  width: 600px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  display: relative;
+}
+
+.select-input-background.show .select-input-container .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem 1.2rem;
+  border-radius: 50%;
+  background-color: rgba(255, 56, 56, 1);
+  transform: translateX(50%) translateY(-50%) scale(1);
+  outline: none;
+  transition: all 1s ease-in;
+}
+
+.select-input-background.show .select-input-container .close:hover {
+  transform: translateX(50%) translateY(-50%) scale(1.1);
+}
+
+.inputSelection {
+  padding: 1rem;
+  font-size: 2rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  cursor: pointer;
 }

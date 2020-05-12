@@ -12,12 +12,18 @@ const header = document.querySelector('.header-section');
 const introduction = document.querySelector('.introduction');
 const getStarted = document.getElementById('getStarted');
 const mainContent = document.getElementById('main-content');
+const closeBtnForInputSelector = document.getElementById('closeInputSelector');
+const inputSelectorBkg = document.querySelector('.select-input-background');
+
+const selectOptions = document.querySelectorAll('.selectOption');
+
 const ROWS_TO_START_WITH = 6;
 let rowCount;
 let rows = [];
 let columnHeaders = [];
 let DOMrows = [];
 let i = 1;
+let selectedRow;
 
 function fetchDOMValues() {
   columnHeaders = [];
@@ -42,6 +48,8 @@ function addToDOMRows(rowClicked) {
       <option value="random">Random Data</option>
       <option value="data">data</option>
   </select>
+  <div class="inputSelection">Select</div>
+
 </div>
 
 <div class="column actions">
@@ -74,6 +82,14 @@ function documentClick(e) {
   if (e.target.classList.contains('delete')) {
     deleteRowFromDOM(parentRow);
   }
+  if (e.target.classList.contains('inputSelection')) {
+    displayInputSelection(parentRow);
+  }
+}
+
+function displayInputSelection(row) {
+  inputSelectorBkg.classList.add('show');
+  selectedRow = row;
 }
 
 function deleteRowFromDOM(parentRow) {
@@ -137,6 +153,9 @@ generateBtn.addEventListener('click', () => {
 
 document.addEventListener('click', documentClick);
 getStarted.addEventListener('click', loadMainContainer);
+closeBtnForInputSelector.addEventListener('click', () => {
+  inputSelectorBkg.classList.remove('show');
+});
 
 for (let i = 0; i < ROWS_TO_START_WITH; i++) {
   addToDOMRows();
@@ -145,3 +164,12 @@ for (let i = 0; i < ROWS_TO_START_WITH; i++) {
 loadMainContainer();
 
 // console.log(generateDataArrayForColumn(10, 'index'));
+
+selectOptions.forEach((btn) =>
+  btn.addEventListener('click', (e) => {
+    console.log(e.target);
+    //add value to current row
+
+    inputSelectorBkg.classList.remove('show');
+  })
+);
