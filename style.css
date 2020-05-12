@@ -3,8 +3,9 @@
 
 :root {
   --header-color: ;
-  --background-color: rgb(83, 92, 104);
+  --background-color: rgb(200, 200, 200);
   --btn-bg: rgba(255, 77, 77, 0.4);
+  --text-color: rgba(10, 10, 10, 1);
 }
 
 * {
@@ -22,7 +23,7 @@ body {
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   background-color: var(--background-color);
-  color: #ffcccc;
+  color: var(--text-color);
   margin: 0;
   padding: 0;
 }
@@ -144,7 +145,7 @@ body {
   display: flex;
   max-width: 600px;
   width: 75%;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   transition: all 0.6s ease-in-out;
   transform: translateX(0%);
@@ -175,8 +176,9 @@ body {
 }
 
 .column {
-  width: 50%;
-  padding: 1rem 3rem;
+  width: 40%;
+  padding: 1rem;
+  margin: 0 1rem;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -184,12 +186,17 @@ body {
   height: initial;
 }
 
-.actions {
-  position: absolute;
-  right: -30px;
-  top: 25%;
-  transform: translateX(50%);
-  overflow: hidden;
+.column.actions {
+  display: flex;
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.actions button:first-child {
+  margin-right: 2rem;
+  /* margin-left:rem; */
 }
 
 .actions button {
@@ -206,11 +213,17 @@ body {
 }
 
 .btn {
-  padding: 0.5rem;
+  padding: 1rem 3rem;
   margin: 1rem;
-  border-radius: 5px;
+  border-radius: 1rem;
   cursor: pointer;
-  background-image: linear-gradient(to top left, #ff9f1a, #ff3838);
+  background-image: linear-gradient(
+    to top left,
+    rgba(34, 166, 179, 1),
+    rgba(19, 15, 64, 1)
+  );
+  color: white;
+  font-size: 1.6rem;
   border: 0;
   border: 2px solid var(--btn-bg);
   transform: translateX(0);
@@ -220,7 +233,7 @@ body {
 
 .btn:hover {
   border: 2px solid rgba(255, 56, 56, 1);
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 footer {
@@ -334,9 +347,9 @@ footer {
 input,
 select {
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 0.5rem 1rem;
   font-size: 1.6rem;
-  padding: 0.6em 1.4em 0.5em 0.8em;
+  /* padding: 0.6em 1.4em 0.5em 0.8em; */
   width: 100%;
   margin: 0;
   border-radius: 0.5em;
@@ -371,11 +384,6 @@ input:focus,
 }
 .select-css option {
   font-weight: normal;
-}
-
-.actions button:first-child {
-  margin-right: 1rem;
-  margin-left: 1rem;
 }
 
 .actions button .tooltiptext {

@@ -12,7 +12,7 @@ const header = document.querySelector('.header-section');
 const introduction = document.querySelector('.introduction');
 const getStarted = document.getElementById('getStarted');
 const mainContent = document.getElementById('main-content');
-
+const ROWS_TO_START_WITH = 6;
 let rowCount;
 let rows = [];
 let columnHeaders = [];
@@ -43,11 +43,13 @@ function addToDOMRows(rowClicked) {
       <option value="data">data</option>
   </select>
 </div>
-<div class="actions">
-  <button class="add"> <i class="far fa-plus-square fa-2x add"></i><span class="tooltiptext">Add a New Row</span></button>
-  <button class="delete"> <i class="fas fa-trash-alt fa-2x delete"></i><span class="tooltiptext">Delete Existing Row</span></button>
-  
-  </div>`;
+
+<div class="column actions">
+<button class="add"> <i class="far fa-plus-square fa-2x add"></i><span class="tooltiptext">Add a New Row</span></button>
+<button class="delete"> <i class="fas fa-trash-alt fa-2x delete"></i><span class="tooltiptext">Delete Existing Row</span></button>
+
+</div>
+`;
 
   DOMrows.push(newRow);
 
@@ -135,6 +137,11 @@ generateBtn.addEventListener('click', () => {
 
 document.addEventListener('click', documentClick);
 getStarted.addEventListener('click', loadMainContainer);
-addToDOMRows();
+
+for (let i = 0; i < ROWS_TO_START_WITH; i++) {
+  addToDOMRows();
+}
+
+loadMainContainer();
 
 // console.log(generateDataArrayForColumn(10, 'index'));
