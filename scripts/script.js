@@ -44,10 +44,6 @@ function addToDOMRows(rowClicked) {
   <input type="text" class="columnName" value="test${i + 1}">
 </div>
 <div class="column">
-  <select class="select-css">
-      <option value="random">Random Data</option>
-      <option value="data">data</option>
-  </select>
   <div class="inputSelection">Select</div>
 
 </div>
@@ -169,6 +165,8 @@ selectOptions.forEach((btn) =>
   btn.addEventListener('click', (e) => {
     console.log(e.target);
     //add value to current row
+    selectedRow.querySelector('.inputSelection').textContent =
+      e.target.textContent;
 
     inputSelectorBkg.classList.remove('show');
   })
