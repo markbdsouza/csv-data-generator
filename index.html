@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="introduction">
+    <div class="introduction hide">
         <h1>CSV File Generator</h1>
         <p class='intro-details'>Welcome to the one stop solution for all your data generating needs
             # Include GRID for use cases
@@ -64,56 +64,33 @@
             </div>
 
             <div class="btn-container">
-                <!-- <button class="btn" id="add-row">Add New Row</button> -->
-                <button class="btn" id="generate-button">View Sample</button>
+                <!-- <button class="btn" id="view-sample">View Sample</button> -->
                 <button class="btn" id="generate-button">Generate File</button>
-                <button class="btn" id="generate-button">Generate SQL Script</button>
+                <!-- <button class="btn" id="generate-SQL">Generate SQL Script</button> -->
             </div>
 
 
             <div class="additional-details">
-                <h3>Why is test data important?</h3>
-                <p> If you're developing an application, you'll want to make sure you're testing it under conditions
-                    that
-                    closely simulate a production environment. In production, you'll have an army of users banging away
-                    at
-                    your
-                    app and filling your database with data, which puts stress on your code. If you're hand-entering
-                    data
-                    into a
-                    test environment one record at a time using the UI, you're never going to build up the volume and
-                    variety of
-                    data that your app will accumulate in a few days in production. Worse, the data you enter will be
-                    biased
-                    towards your own usage patterns and won't match real-world usage, leaving important bugs
-                    undiscovered.
+                <h3>Why generate test data?</h3>
+                <p>Unless you are in the preliminary stages of creating your application, you should always have a good
+                    volume of mocked up data when testing your application. This will help catch performance issues in
+                    your code
+                    early on in the cycle as well as issues with the UI. Maybe you need to use a larger width to display
+                    the name of your customer because you saw that some customers have long names which are getting
+                    trimmed. Or maybe you see that you dont have enough space in your DB for the addresses you want to
+                    store.
                 </p>
                 <h3>Why is realistic data important?</h3>
-                <p>When your test database is filled with realistic looking data, you'll be more engaged as a tester.
-                    When you
-                    demonstrate new features to others, they'll understand them faster. Real data is varied and will
-                    contain
-                    characters that may not play nice with your code, such as apostrophes, or unicode characters from
-                    other
-                    languages. Testing with realistic data will make your app more robust because you'll catch errors
-                    that
-                    are
-                    likely to occur in production before release day.
+                <p>If you are trying to showcase your project as a real time application, it adds a lot of value to
+                    actually show realistic names, addresses and data instead of asd and qwe typed out in a hurry by
+                    you. Creating
+                    data and testing it on your app will also add realstic issues like an apostrophe in a name or
+                    address which your code might not be able to handle.
                 </p>
-                <h3>Why Mockaroo?</h3>
-                <p>There are plenty of great data mocking libraries available for almost every language and platform.
-                    But not
-                    everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and
-                    easily
-                    to
-                    download large amounts of randomly generated test data based on your own specs which you can then
-                    load
-                    directly into your test environment using SQL or CSV formats. No programming is required.
-                </p>
-                <h3>Want to automate test data generation?</h3>
-                <p>If you sign in using your Google account, you can download random data programmatically by saving
-                    your
-                    schemas and using curl to download data in a shell script via a RESTful url.
+                <h3>Why use CSV Data Generator?</h3>
+                <p>The CSV Data Generator is Light, Easy and Customizable with absolutely NO registration. Other data
+                    generators available either do not have the various options provided here OR try and get you to sign
+                    in and pay for the more advanced features which are available here for absolutely free!!
                 </p>
             </div>
 

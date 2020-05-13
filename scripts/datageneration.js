@@ -1,14 +1,20 @@
+const selectOptions = {
+  'Random String': 'randomString',
+  'Random Integer': 'randomInteger',
+  'Sequence Generated Integer': 'index',
+};
+
 export function generateDataArrayForColumn(totalRowCount, columnConfig) {
   console.log(columnConfig);
   console.log(columnConfig.type);
   let result = [];
   let columnCountArray = Array.from(Array(totalRowCount), (x, i) => i);
   columnCountArray.forEach((x, i) => {
-    if (columnConfig.type === 'index') {
+    if (selectOptions[columnConfig.type] === 'index') {
       result.push(`${i + 1}`);
-    } else if (columnConfig.type === 'randomInteger') {
+    } else if (selectOptions[columnConfig.type] === 'randomInteger') {
       result.push(Math.floor(Math.random() * 100));
-    } else if (columnConfig.type === 'randomCharacter') {
+    } else if (selectOptions[columnConfig.type] === 'randomString') {
       let characters =
         'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
       result.push(characters[Math.floor(Math.random() * characters.length)]);

@@ -1,11 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 :root {
-  --header-color: ;
-  --background-color: rgb(200, 200, 200);
+  --primary-color: rgb(17, 153, 158);
+  --secondary-color: rgb(228, 249, 245);
   --btn-bg: rgba(255, 77, 77, 0.4);
   --text-color: rgba(10, 10, 10, 1);
+  --option-1: rgb(48, 227, 202);
+  --option-1-faded: rgba(48, 227, 202, 0.2);
+  --option-2: rgb(64, 81, 78);
+  --option-2-faded: rgba(64, 81, 78, 0.6);
+  --background-img: linear-gradient(
+    to top left,
+    var(--primary-color),
+    var(--option-2)
+  );
 }
 
 * {
@@ -21,8 +29,8 @@ html {
 body {
   position: relative;
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  background-color: var(--background-color);
+  font-family: 'Lato', sans-serif;
+  background-color: var(--secondary-color);
   color: var(--text-color);
   margin: 0;
   padding: 0;
@@ -47,7 +55,7 @@ body {
   z-index: 1;
   transition: all 1s ease-out;
   opacity: 1;
-  font-family: 'Patrick Hand', cursive;
+  /* font-family: 'Patrick Hand', cursive; */
 }
 
 .introduction.hide {
@@ -104,12 +112,11 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   padding: 1rem;
-  background-color: rgb(106, 176, 76);
-  color: #3d3d3d;
+  background-image: var(--background-img);
+  color: var(--secondary-color);
   font-weight: bold;
   transition: all 1s ease-in;
   transform: translateY(0);
-  font-family: 'Patrick Hand', cursive;
   font-size: 1.8rem;
   padding: 0.5rem 3rem;
 }
@@ -158,14 +165,14 @@ body {
   opacity: 0;
 }
 .row:nth-child(odd) {
-  background-color: rgba(34, 166, 179, 1);
+  background-color: var(--option-2-faded);
 }
 
 .row:nth-child(even) {
-  background-color: rgba(199, 236, 238, 1);
+  background-color: var(--option-1-faded);
 }
 .row:first-child {
-  background-color: rgba(19, 15, 64, 1);
+  background-color: var(--option-2);
   color: rgba(223, 249, 251, 1);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -217,11 +224,7 @@ body {
   margin: 1rem;
   border-radius: 1rem;
   cursor: pointer;
-  background-image: linear-gradient(
-    to top left,
-    rgba(34, 166, 179, 1),
-    rgba(19, 15, 64, 1)
-  );
+  background-image: var(--background-img);
   color: white;
   font-size: 1.6rem;
   border: 0;
@@ -232,15 +235,16 @@ body {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-.btn:hover {
-  border: 2px solid rgba(255, 56, 56, 1);
+.btn:hover,
+.btn:focus {
+  border: 2px solid var(--option-2-faded);
   transform: translateY(-5px);
 }
 
 footer {
   width: 100%;
-  background-color: rgb(106, 176, 76);
-  color: black;
+  background-image: var(--background-img);
+  color: var(--secondary-color);
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -350,13 +354,13 @@ input,
   border-radius: 5px;
   padding: 0.5rem 1rem;
   font-size: 1.6rem;
-  /* padding: 0.6em 1.4em 0.5em 0.8em; */
   width: 100%;
   margin: 0;
   border-radius: 0.5em;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
   background-color: #fff;
   outline: none;
+  position: relative;
 }
 
 .inputSelection {
@@ -369,6 +373,13 @@ input:focus,
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
   color: #222;
+}
+
+.inputSelection i {
+  position: absolute;
+  right: 0;
+  transform: translateX(-100%) translateY(15%);
+  pointer-events: none;
 }
 
 .actions button .tooltiptext {
@@ -384,7 +395,8 @@ input:focus,
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.actions button:hover .tooltiptext {
+.actions button:hover .tooltiptext,
+.actions button:focus .tooltiptext {
   visibility: visible;
 }
 

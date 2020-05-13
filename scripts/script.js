@@ -1,72 +1,65 @@
 import { generateFile } from './filegeneration.js';
-import { cellHeaders } from './tableScript.js';
-import {
-  generateDataArrayForColumn,
-  createExcelRowData,
-} from './datageneration.js';
+import { createExcelRowData } from './datageneration.js';
 
 const generateBtn = document.getElementById('generate-button');
 const rowCountEl = document.getElementById('row-count');
 const dataInputContainer = document.querySelector('.data-input-container');
-const header = document.querySelector('.header-section');
 const introduction = document.querySelector('.introduction');
 const getStarted = document.getElementById('getStarted');
 const mainContent = document.getElementById('main-content');
 const closeBtnForInputSelector = document.getElementById('closeInputSelector');
 const inputSelectorBkg = document.querySelector('.select-input-background');
-
 const selectOptions = document.querySelectorAll('.selectOption');
+const ROWS_TO_START_WITH = 3;
 
-const ROWS_TO_START_WITH = 6;
-let rowCount;
-let rows = [];
-let columnHeaders = [];
 let DOMrows = [];
 let i = 1;
 let selectedRow;
 
 function fetchDOMValues() {
-  columnHeaders = [];
-  rowCount = +rowCountEl.value;
-  const columnHeaderEl = document.querySelectorAll('.columnName');
-  columnHeaderEl.forEach((col) => {
-    columnHeaders.push(col.value);
+  let dataConfig = [];
+  const rows = document.querySelectorAll('.row');
+  rows.forEach((row, index) => {
+    // to exclude the header which is the first row
+    if (index >= 1) {
+      dataConfig.push({
+        columnName: row.querySelector('.columnName').value,
+        type: row.querySelector('.inputSelection').innerText,
+        maxLength: 100,
+        minLength: 0,
+        nullable: false,
+      });
+    }
   });
+
+  return dataConfig;
 }
 
 function addToDOMRows(rowClicked) {
-  const existingMaxIndex = DOMrows.length;
-
   const newRow = document.createElement('div');
   newRow.classList.add('row');
   newRow.classList.add('hide');
-  newRow.innerHTML = `  <div class="column">
-  <input type="text" class="columnName" value="test${i + 1}">
-</div>
-<div class="column">
-  <div class="inputSelection">Select</div>
-
-</div>
-
-<div class="column actions">
-<button class="add"> <i class="far fa-plus-square fa-2x add"></i><span class="tooltiptext">Add a New Row</span></button>
-<button class="delete"> <i class="fas fa-trash-alt fa-2x delete"></i><span class="tooltiptext">Delete Existing Row</span></button>
-
-</div>
-`;
-
+  newRow.innerHTML = `  
+    <div class="column">
+      <input type="text" class="columnName" value="test${i + 1}">
+    </div>
+    <div class="column">
+        <button class="inputSelection">Select <i class="fa fa-angle-down"></i> </button>
+    </div>
+    
+    <div class="column actions">
+      <button class="add"> <i class="far fa-plus-square fa-2x add"></i><span class="tooltiptext">Add a New Row</span></button>
+      <button class="delete"> <i class="fas fa-trash-alt fa-2x delete"></i><span class="tooltiptext">Delete Existing Row</span></button>
+    </div>`;
   DOMrows.push(newRow);
-
   if (rowClicked) {
     rowClicked.insertAdjacentElement('afterend', newRow);
   } else {
     dataInputContainer.insertAdjacentElement('beforeend', newRow);
   }
-
   setTimeout(() => {
     newRow.classList.remove('hide');
   }, 100);
-
   i++;
 }
 
@@ -93,9 +86,6 @@ function deleteRowFromDOM(parentRow) {
   setTimeout(() => {
     dataInputContainer.removeChild(parentRow);
     DOMrows = DOMrows.filter((row) => {
-      console.log(row);
-      console.log(parentRow.outerHTML);
-
       return row !== parentRow;
     });
     if (DOMrows.length === 0) {
@@ -112,41 +102,15 @@ function loadMainContainer() {
   }, 1000);
 }
 
-let dataConfig = [
-  {
-    columnName: 'col1',
-    type: 'index',
-    maxLength: 100,
-    minLength: 0,
-    nullable: false,
-  },
-  {
-    columnName: 'col2',
-    type: 'randomInteger',
-    maxLength: 100,
-    minLength: 0,
-    nullable: false,
-  },
-  {
-    columnName: 'col3',
-    type: 'randomCharacter',
-    maxLength: 100,
-    minLength: 0,
-    nullable: false,
-  },
-];
+function fetchDataAndGenerateFile() {
+  let rowCount = +rowCountEl.value;
+  let dataConfig = fetchDOMValues();
+  let rows = createExcelRowData(rowCount, dataConfig);
+  generateFile(rows);
+}
 
 //event listeners
-generateBtn.addEventListener('click', () => {
-  fetchDOMValues();
-  // generateRandomData();
-
-  rows = createExcelRowData(rowCount, dataConfig);
-  console.log(rows);
-
-  // generateFile(rows);
-});
-
+generateBtn.addEventListener('click', fetchDataAndGenerateFile);
 document.addEventListener('click', documentClick);
 getStarted.addEventListener('click', loadMainContainer);
 closeBtnForInputSelector.addEventListener('click', () => {
@@ -156,18 +120,13 @@ closeBtnForInputSelector.addEventListener('click', () => {
 for (let i = 0; i < ROWS_TO_START_WITH; i++) {
   addToDOMRows();
 }
-
 loadMainContainer();
-
-// console.log(generateDataArrayForColumn(10, 'index'));
 
 selectOptions.forEach((btn) =>
   btn.addEventListener('click', (e) => {
-    console.log(e.target);
     //add value to current row
     selectedRow.querySelector('.inputSelection').textContent =
       e.target.textContent;
-
     inputSelectorBkg.classList.remove('show');
   })
 );
