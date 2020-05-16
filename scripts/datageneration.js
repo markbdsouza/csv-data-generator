@@ -2,6 +2,7 @@ const selectOptions = {
   'Random String': 'randomString',
   'Random Integer': 'randomInteger',
   'Sequence Generated Integer': 'index',
+  'Full Name': 'fullName',
 };
 
 export function generateDataArrayForColumn(totalRowCount, columnConfig) {

@@ -77,19 +77,19 @@ body {
   display: block;
   width: 50%;
   padding: 20px;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .introduction h1 {
   z-index: 1;
-  font-size: 6rem;
+  font-size: 4rem;
 }
 
 .introduction .intro-details {
   width: 75%;
   text-align: justify;
   line-height: 1.4;
-  font-size: 3rem;
+  font-size: 2rem;
   padding: 30px 0 0;
   color: white;
   z-index: 1;
@@ -117,7 +117,7 @@ body {
   font-weight: bold;
   transition: all 1s ease-in;
   transform: translateY(0);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   padding: 0.5rem 3rem;
 }
 
@@ -226,7 +226,7 @@ body {
   cursor: pointer;
   background-image: var(--background-img);
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   border: 0;
   border: 2px solid var(--btn-bg);
   transform: translateX(0);
@@ -255,7 +255,7 @@ footer {
 }
 
 .header {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
@@ -268,7 +268,7 @@ footer {
   border-radius: 50%;
   width: 24px;
   height: 24px;
-  font-size: 2rem;
+  font-size: 1.4rem;
   line-height: 26px;
   cursor: default;
 }
@@ -353,7 +353,7 @@ input,
 .inputSelection {
   border-radius: 5px;
   padding: 0.5rem 1rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   width: 100%;
   margin: 0;
   border-radius: 0.5em;
@@ -401,7 +401,7 @@ input:focus,
 }
 
 .additional-details {
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 1rem 5rem;
   line-height: 1.6;
 }
@@ -446,7 +446,7 @@ input:focus,
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   padding: 1rem 1.2rem;
   border-radius: 50%;

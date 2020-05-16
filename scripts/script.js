@@ -1,6 +1,11 @@
 import { generateFile } from './filegeneration.js';
 import { createExcelRowData } from './datageneration.js';
 
+// var randomName = faker.name.findName(); // Caitlyn Kerluke
+// console.log(randomName);
+var randomName = faker.name.findName(); // Caitlyn Kerluke
+console.log(randomName);
+
 const generateBtn = document.getElementById('generate-button');
 const rowCountEl = document.getElementById('row-count');
 const dataInputContainer = document.querySelector('.data-input-container');
