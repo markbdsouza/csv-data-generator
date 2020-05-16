@@ -1,24 +1,25 @@
-const selectOptions = {
-  'Random String': 'randomString',
-  'Random Integer': 'randomInteger',
-  'Sequence Generated Integer': 'index',
-  'Full Name': 'fullName',
-};
-
 export function generateDataArrayForColumn(totalRowCount, columnConfig) {
   console.log(columnConfig);
   console.log(columnConfig.type);
   let result = [];
   let columnCountArray = Array.from(Array(totalRowCount), (x, i) => i);
   columnCountArray.forEach((x, i) => {
-    if (selectOptions[columnConfig.type] === 'index') {
+    if (columnConfig.type === 'index') {
       result.push(`${i + 1}`);
-    } else if (selectOptions[columnConfig.type] === 'randomInteger') {
+    } else if (columnConfig.type === 'randomInteger') {
       result.push(Math.floor(Math.random() * 100));
-    } else if (selectOptions[columnConfig.type] === 'randomString') {
+    } else if (columnConfig.type === 'randomString') {
       let characters =
         'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
       result.push(characters[Math.floor(Math.random() * characters.length)]);
+    } else if (columnConfig.type === 'fullName') {
+      result.push(faker.name.findName());
+    } else if (columnConfig.type === 'email') {
+      result.push(faker.internet.email());
+    } else if (columnConfig.type === 'phone') {
+      result.push(faker.phone.phoneNumber());
+    } else if (columnConfig.type === 'address') {
+      result.push(faker.address.streetAddress());
     } else result.push(`NOT SPECIFIED`);
   });
   return result;
