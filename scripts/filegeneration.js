@@ -22,9 +22,10 @@ export function generateFile(rows) {
   let csvFile = '';
   var d = new Date();
 
-  let filename = `${d.getFullYear()}_${
+  let filename = `CSV_Data_${d.getFullYear()}_${
     d.getMonth() + 1
-  }_${d.getDate()} ${d.getHours()}_${d.getMinutes()}.csv`;
+  }_${d.getDate()} ${d.getHours()}:${d.getMinutes()}.csv`;
+
   rows.forEach(function (rowArray) {
     let row = rowArray.join(',');
     csvFile += row + '\r\n';

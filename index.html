@@ -8,42 +8,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
         integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="./style.css">
-
-
 </head>
 
 <body>
+    <!-- Intro container with a brief description of the Application -->
     <div class="introduction">
         <h1>CSV File Generator</h1>
-        <p class='intro-details'>Welcome to the one stop solution for all your data generating needs
+        <p class='intro-details'>Welcome to the one stop solution for all your data generating needs. The CSV Data
+            Generator can generate a large amount of meaningul data depending on your data requirements in almost no
+            time.
+            <br><br>
+            It's a simple 4 step quick process
             <br>
-            It's easy
+            &emsp;&emsp;Step 1) Add as many columns as you want
             <br>
-            &emsp;1. Add as many columns as you want
+            &emsp;&emsp;Step 2) Set the type of data you want for each column
             <br>
-            &emsp; 2. Set the type of data you want for each column
+            &emsp;&emsp;Step 3) Put in the number of rows you want to generate
             <br>
-            &emsp;3. Put in the number of rows you want to generate
-            <br>
-            &emsp;4. Generate the File
-            <br>
-            No Installations, No Sign-in, No hiccups.
-
+            &emsp;&emsp;Step 4) Generate the File
+            <br><br>
+            No Installations, No Sign-ins, No Hiccups.
             <br>
             <small class="intro-footer">This works best on a laptop on a Chrome/Firefox Browser</small>
         </p>
         <button class="btn" id='getStarted'>Get Started</button>
     </div>
-
-
+    <!-- Main Content of the Website -->
     <div id="main-content">
+        <!-- Header -->
         <div class="header-section cover">
             <h1>CSV File Generator</h1>
             <div class="info">Easy, Customizable, Open Source, Fast & Free</div>
         </div>
-
+        <!-- Main Container with the table, buttons and QnA -->
         <div class="main-container">
-
             <div class="data-input-container">
                 <div class="row header" id="tableColNames">
                     <div class="column">Column Name</div>
@@ -51,16 +50,16 @@
                     <div class="column actions"></div>
                 </div>
             </div>
-
             <div class="columns">
             </div>
             <div class="config">
                 <div class='row-count-input'>
                     <label for="row-count">Number of Rows</label>
-                    <input type="number" class="row-count" value="20" name="row-count" id="row-count" max="1000">
                     <div class="help-tip">
                         <p>Enter the total number of rows that you want to generate</p>
                     </div>
+                    <input type="number" class="row-count" value="1000" name="row-count" id="row-count" max="1000">
+
                 </div>
                 <div class='buttons'>
                     <!-- <button class="btn" id="view-sample">View Sample</button> -->
@@ -68,9 +67,6 @@
                     <!-- <button class="btn" id="generate-SQL">Generate SQL Script</button> -->
                 </div>
             </div>
-
-
-
             <div class="additional-details">
                 <h3>Why generate test data?</h3>
                 <p>You should always have a good
@@ -81,10 +77,10 @@
                     trimmed. Or maybe you see that you dont have enough space in your DB for the addresses you want to
                     store.
                 </p>
-                <h3>Why is realistic data important?</h3>
+                <h3>Is having realistic data really important?</h3>
                 <p>If you are trying to showcase your project as a real time application, it adds a lot of value to
-                    actually show realistic names, addresses and data instead of asd and qwe typed out in a hurry by
-                    you. Creating
+                    actually show realistic names, addresses and data instead of random alphabets typed out in a hurry
+                    by you. Creating
                     data and testing it on your app will also add realstic issues like an apostrophe in a name or
                     address which your code might not be able to handle.
                 </p>
@@ -96,16 +92,24 @@
                     This is a light-weight solution and all the data gets created entirely on the client side using
                     Vanilla Javascript.
                 </p>
+                <h3>How many rows/columns can I generate?</h3>
+                <p>The CSV Data Generator is a light weight application that has been built using vanilla Javascript.
+                    You can create as much data as you like but your browser could crash if you are trying to create 1
+                    trillion records for a bunch of columns! So go easy :)
+                </p>
+                <h3>How can I see the code?</h3>
+                <p>Head right down to the github repository in the footer and check it out
+                </p>
             </div>
-
         </div>
-
+        <!-- The popup displaying all the options -->
         <div class="select-input-background">
             <div class="select-input-container">
+
                 <button class="close" id="closeInputSelector">X</button>
             </div>
         </div>
-
+        <!-- Footer with contact details -->
         <footer>
             <section id="contact" class="contact">
                 <div class="profile-picture">
@@ -123,17 +127,13 @@
                                 class="fab fa-twitter"></i></a>
                         <a href="https://github.com/markbdsouza/csv-data-generator" class="" target="_blank">
                             <i class="fab fa-github"></i></a>
-
                     </div>
                 </div>
-
             </section>
         </footer>
     </div>
     <script src="./scripts/faker.js" type="text/javascript"></script>
     <script src="./scripts/script.js" type="module"></script>
-
-
 </body>
 
 </html>

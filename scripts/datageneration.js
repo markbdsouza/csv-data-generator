@@ -1,6 +1,4 @@
 function generateDataArrayForColumn(totalRowCount, columnConfig) {
-  console.log(columnConfig);
-  console.log(columnConfig.type);
   let result = [];
   let columnCountArray = Array.from(Array(totalRowCount), (x, i) => i);
   columnCountArray.forEach((x, i) => {

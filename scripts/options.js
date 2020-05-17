@@ -9,7 +9,7 @@ export const ALL_OPTIONS = [
     },
   },
   {
-    name: 'street Address',
+    name: 'Street Address',
     value: 'streetAddress',
     type: 'address',
     getData() {
@@ -17,7 +17,7 @@ export const ALL_OPTIONS = [
     },
   },
   {
-    name: 'secondary Address',
+    name: 'Secondary Address',
     value: 'secondaryAddress',
     type: 'address',
     getData() {
@@ -81,7 +81,7 @@ export const ALL_OPTIONS = [
     },
   },
   {
-    name: 'latitude',
+    name: 'Latitude',
     value: 'latitude',
     type: 'address',
     getData() {
@@ -89,7 +89,7 @@ export const ALL_OPTIONS = [
     },
   },
   {
-    name: 'longitude',
+    name: 'Longitude',
     value: 'longitude',
     type: 'address',
     getData() {
@@ -131,30 +131,30 @@ export const ALL_OPTIONS = [
       return faker.company.companyName();
     },
   },
-  {
-    name: 'bs',
-    value: 'bs',
-    type: 'company',
-    getData() {
-      return faker.company.bs();
-    },
-  },
-  {
-    name: 'companySuffix',
-    value: 'companySuffix',
-    type: 'company',
-    getData() {
-      return faker.company.companySuffix();
-    },
-  },
-  {
-    name: 'catchPhraseAdjective',
-    value: 'catchPhraseAdjective',
-    type: 'company',
-    getData() {
-      return faker.company.catchPhraseAdjective();
-    },
-  },
+  //   {
+  //     name: 'bs',
+  //     value: 'bs',
+  //     type: 'company',
+  //     getData() {
+  //       return faker.company.bs();
+  //     },
+  //   },
+  //   {
+  //     name: 'companySuffix',
+  //     value: 'companySuffix',
+  //     type: 'company',
+  //     getData() {
+  //       return faker.company.companySuffix();
+  //     },
+  //   },
+  //   {
+  //     name: 'catchPhraseAdjective',
+  //     value: 'catchPhraseAdjective',
+  //     type: 'company',
+  //     getData() {
+  //       return faker.company.catchPhraseAdjective();
+  //     },
+  //   },
   //database
   {
     name: 'column',
@@ -165,68 +165,68 @@ export const ALL_OPTIONS = [
     },
   },
   {
-    name: 'DBtype',
+    name: 'Data Base Type',
     value: 'type',
     type: 'database',
     getData() {
       return faker.database.type();
     },
   },
-  {
-    name: 'collation',
-    value: 'collation',
-    type: 'database',
-    getData() {
-      return faker.database.collation();
-    },
-  },
-  {
-    name: 'engine',
-    value: 'engine',
-    type: 'database',
-    getData() {
-      return faker.database.engine();
-    },
-  },
+  //   {
+  //     name: 'collation',
+  //     value: 'collation',
+  //     type: 'database',
+  //     getData() {
+  //       return faker.database.collation();
+  //     },
+  //   },
+  //   {
+  //     name: 'engine',
+  //     value: 'engine',
+  //     type: 'database',
+  //     getData() {
+  //       return faker.database.engine();
+  //     },
+  //   },
   //Date
 
   {
-    name: 'past',
+    name: 'Past Date',
     value: 'past',
-    type: 'database',
+    type: 'date',
     getData() {
       return faker.date.past();
     },
   },
   {
-    name: 'future',
+    name: 'Future Date',
     value: 'future',
-    type: 'database',
+    type: 'date',
     getData() {
       return faker.date.future();
     },
   },
   {
-    name: 'recent',
+    name: 'Recent Date',
     value: 'recent',
-    type: 'database',
+    type: 'date',
     getData() {
       return faker.date.recent();
     },
   },
   {
-    name: 'month',
+    name: 'Month',
     value: 'month',
-    type: 'database',
+    type: 'date',
     getData() {
       return faker.date.month();
     },
   },
 
   {
-    name: 'weekday',
+    name: 'Weekday',
     value: 'weekday',
-    type: 'database',
+    type: 'date',
     getData() {
       return faker.date.weekday();
     },
@@ -234,8 +234,8 @@ export const ALL_OPTIONS = [
 
   //////////OTHERS
   {
-    name: 'Random String',
-    value: 'randomString',
+    name: 'Random Character',
+    value: 'randomCharacter',
     type: 'other',
     getData() {
       let characters =
@@ -243,23 +243,21 @@ export const ALL_OPTIONS = [
       return characters[Math.floor(Math.random() * characters.length)];
     },
   },
-  {
-    name: 'Sequence Generated Integer',
-    value: 'index',
-    index: 0,
-    type: 'a0',
-    getData: function () {
-      //   console.log(this.index);
-      //   console.log(this);
-      return this.index;
-    },
-  },
+  //   {
+  //     name: 'Sequence Generated Integer',
+  //     value: 'index',
+  //     index: 0,
+  //     type: 'a0',
+  //     getData: function () {
+  //       return this.index;
+  //     },
+  //   },
   {
     name: 'Random Integer',
     value: 'randomInteger',
     type: 'other',
     getData() {
-      return Math.floor(Math.random() * 100);
+      return Math.floor(Math.random() * 10000);
     },
   },
   {
@@ -279,7 +277,7 @@ export const ALL_OPTIONS = [
     },
   },
   {
-    name: 'e-mail',
+    name: 'Email',
     value: 'email',
     type: 'internet',
     getData() {

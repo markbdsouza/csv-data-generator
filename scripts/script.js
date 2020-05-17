@@ -12,7 +12,7 @@ const closeBtnForInputSelector = document.getElementById('closeInputSelector');
 const inputSelectorBkg = document.querySelector('.select-input-background');
 const selectInputContainer = document.querySelector('.select-input-container');
 
-const ROWS_TO_START_WITH = 4;
+const ROWS_TO_START_WITH = 8;
 let DOMrows = [];
 let i = 0;
 let selectedRow;
@@ -66,8 +66,18 @@ function fetchDOMValues() {
   return dataConfig;
 }
 
+function setRandomOptionValue(row) {
+  let randomOption =
+    ALL_OPTIONS[Math.floor(Math.random() * ALL_OPTIONS.length)];
+  row.querySelector(
+    '.inputSelection'
+  ).innerHTML = `${randomOption.name} <i class="fa fa-angle-down"></i>`;
+  row.querySelector('.inputSelection').dataset.value = randomOption.value;
+  return row;
+}
+
 function addToDOMRows(rowClicked) {
-  const newRow = document.createElement('div');
+  let newRow = document.createElement('div');
   newRow.classList.add('row');
   newRow.classList.add('hide');
   newRow.innerHTML = `  
@@ -76,12 +86,12 @@ function addToDOMRows(rowClicked) {
     </div>
     <div class="column">
         <button class="inputSelection">Select <i class="fa fa-angle-down"></i> </button>
-    </div>
-    
+    </div>    
     <div class="column actions">
       <button class="add"> <i class="far fa-plus-square fa-2x add"></i><span class="tooltiptext">Add a New Row</span></button>
       <button class="delete"> <i class="fas fa-trash-alt fa-2x delete"></i><span class="tooltiptext">Delete Existing Row</span></button>
     </div>`;
+  newRow = setRandomOptionValue(newRow);
   DOMrows.push(newRow);
   if (rowClicked) {
     rowClicked.insertAdjacentElement('afterend', newRow);

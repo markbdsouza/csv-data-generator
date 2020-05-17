@@ -29,6 +29,7 @@ html {
 body {
   position: relative;
   min-height: 100vh;
+  height: 100%;
   font-family: 'Lato', sans-serif;
   background-color: var(--secondary-color);
   color: var(--text-color);
@@ -36,7 +37,7 @@ body {
   padding: 0;
 }
 
-/* The main cover page on navigating to the screen */
+/* Intro container with a brief description of the Application */
 .introduction {
   position: absolute;
   top: 0;
@@ -51,11 +52,10 @@ body {
   justify-content: center;
   align-items: center;
   background: url('./images/campaign-creators-pypeCEaJeZY-unsplash.jpg') center
-    center;
+    center no-repeat;
   z-index: 1;
   transition: all 1s ease-out;
   opacity: 1;
-  /* font-family: 'Patrick Hand', cursive; */
 }
 
 .introduction.hide {
@@ -69,14 +69,14 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .introduction button {
   z-index: 1;
   display: block;
   width: 40%;
-  padding: 20px;
+  padding: 2rem;
   font-size: 2rem;
 }
 
@@ -86,7 +86,7 @@ body {
 }
 
 .introduction .intro-details {
-  width: 40%;
+  width: 50%;
   text-align: justify;
   line-height: 1.7;
   font-size: 2rem;
@@ -105,7 +105,7 @@ body {
   display: none;
 }
 
-/* Header of the screen */
+/*Header */
 .header-section {
   display: Flex;
   justify-content: space-between;
@@ -120,6 +120,10 @@ body {
   font-size: 2rem;
 }
 
+.header-section .info {
+  letter-spacing: 1.3px;
+}
+
 /* The main container holds the configuration and the table container*/
 .main-container {
   display: Flex;
@@ -129,21 +133,7 @@ body {
   padding: 1rem;
 }
 
-.main-container .quick-steps {
-  background-color: grey;
-  padding: 1.5rem 3rem;
-  border-radius: 1rem;
-}
-.main-container .quick-steps h3 {
-  font-size: 1.5rem;
-}
-
-.main-container .quick-steps li {
-  font-size: 1.5rem;
-  list-style: decimal;
-  margin-left: 1rem;
-}
-
+/* Number of rows and generate File Button */
 .config {
   padding: 2rem 3rem;
   border-radius: 1rem;
@@ -159,6 +149,7 @@ body {
   flex-direction: column;
   padding: 5px;
   position: relative;
+  width: inherit;
 }
 
 .config input {
@@ -169,15 +160,18 @@ body {
 .config .buttons {
   margin-top: 1.5rem;
 }
+/* End of number of rows and generate file Button */
 
-/* holds the entire table */
+/* container and the entire column/row set */
 .data-input-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
-  /* border-radius: 50%; */
-  /* border: 1px solid; */
+}
+
+.header {
+  font-size: 2rem;
 }
 
 .row {
@@ -199,7 +193,6 @@ body {
 .row:nth-child(odd) {
   background-color: var(--option-2-faded);
 }
-
 .row:nth-child(even) {
   background-color: var(--option-1-faded);
 }
@@ -221,8 +214,8 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* border: 1px solid #3c3c3b; */
   height: initial;
+  position: relative;
 }
 
 .column.actions {
@@ -235,7 +228,6 @@ body {
 
 .actions button:first-child {
   margin-right: 2rem;
-  /* margin-left:rem; */
 }
 
 .actions button {
@@ -269,11 +261,7 @@ body {
   transform: translateY(-5px);
 }
 
-.header {
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-
+/* Tool tip for Number of Rows */
 .help-tip {
   position: absolute;
   top: 18px;
@@ -297,7 +285,6 @@ body {
 .help-tip:hover p {
   display: block;
   transform-origin: 100% 0%;
-
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -306,12 +293,12 @@ body {
   /* The tooltip */
   display: none;
   text-align: left;
-  background-color: #1e2021;
-  padding: 20px;
+  background-image: var(--background-img);
+  padding: 1rem;
   width: 300px;
   position: absolute;
   border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.2);
   right: -4px;
   color: #fff;
   font-size: 1, 5rem;
@@ -341,29 +328,7 @@ body {
   left: 0;
 }
 
-/* CSS animation */
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.6);
-  }
-
-  100% {
-    opacity: 100%;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 100%;
-  }
-}
-
+/* For the Column Name and Option Grid Elements */
 input,
 .inputSelection {
   border-radius: 5px;
@@ -387,7 +352,7 @@ input:focus,
   border-color: #aaa;
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
   box-shadow: 0 0 0 3px -moz-mac-focusring;
-  color: #222;
+  color: #000;
 }
 
 .inputSelection i {
@@ -396,7 +361,9 @@ input:focus,
   transform: translateX(-100%) translateY(15%);
   pointer-events: none;
 }
+/* End of Column Name and Option Grid Elements */
 
+/* CSS for the tool tip for Add and Delete Row */
 .actions button .tooltiptext {
   visibility: hidden;
   width: fit-content;
@@ -406,15 +373,16 @@ input:focus,
   padding: 8px 8px;
   border-radius: 6px;
   position: absolute;
-  z-index: 1;
+  z-index: 1000;
+  transform: translateX(-120%) translateY(40%);
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
 .actions button:hover .tooltiptext,
 .actions button:focus .tooltiptext {
   visibility: visible;
 }
 
+/* Second section of the main container containing the questions and answers */
 .additional-details {
   font-size: 1.5rem;
   padding: 1rem 5rem;
@@ -423,15 +391,16 @@ input:focus,
 
 .additional-details h3,
 .additional-details p {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
+/* End of Second Section */
 
+/* Option selector popup Start */
 .select-input-background {
   display: none;
 }
 
 .select-input-background.show {
-  /* display: inline; */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -443,23 +412,21 @@ input:focus,
 }
 
 .select-input-background.show .select-input-container {
-  /* transform: translateY(75%); */
-  /* width: 600px;
-  height: 300px; */
-  /* top: 25%; */
   justify-content: space-between;
-  /* align-items: flex-start; */
   margin: auto;
   background-color: rgba(255, 255, 255, 1);
   padding: 3rem;
   border-radius: 1rem;
   display: flex;
   position: relative;
-  width: 80%;
+  width: 70%;
   flex-wrap: wrap;
+  top: 20vh;
+  position: absolute;
 }
 
 .select-input-background.show .select-input-container .close {
+  cursor: pointer;
   position: absolute;
   top: 0;
   right: 0;
@@ -467,18 +434,19 @@ input:focus,
   font-weight: bold;
   padding: 1rem 1.2rem;
   border-radius: 50%;
-  background-color: rgba(255, 56, 56, 1);
+  background-color: #d9455f;
   transform: translateX(50%) translateY(-50%) scale(1);
   outline: none;
   transition: all 1s ease-in;
+  outline: none;
 }
 
 .select-input-background.show .select-input-container .close:hover {
-  transform: translateX(50%) translateY(-50%) scale(1.1);
+  transform: translateX(50%) translateY(-50%) scale(1.3);
 }
+/* Option selector popup End */
 
 /* Footer Start */
-
 footer {
   width: 100%;
   background-image: var(--background-img);
@@ -517,5 +485,89 @@ footer .contact {
 footer .contact-details {
   margin-top: 1rem;
 }
-
 /* Footer End */
+
+/* CSS animation */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+/* On screens that are 992px wide or less*/
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 9px;
+  }
+
+  .introduction .intro-details {
+    width: 70%;
+    line-height: 1.6;
+    font-size: 1.8rem;
+    padding: 3rem 0 2rem;
+  }
+  .header-section {
+    font-size: 1.8rem;
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+  .row {
+    width: 80%;
+  }
+  .select-input-background.show .select-input-container {
+    width: 90%;
+  }
+  .select-input-container .btn {
+    padding: 1.2rem;
+    margin: 0.5rem;
+  }
+}
+
+/* On screens that are 600px wide or less*/
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 8px;
+  }
+
+  .introduction .intro-details {
+    width: 80%;
+    line-height: 1.6;
+    font-size: 1.8rem;
+    padding: 3rem 0 2rem;
+  }
+
+  .header-section {
+    flex-direction: column;
+    font-size: 1.8rem;
+  }
+
+  .header-section .info {
+    margin-top: 1rem;
+  }
+
+  .row {
+    width: 90%;
+  }
+  .select-input-container {
+    width: 80%;
+  }
+  .select-input-container .btn {
+    padding: 1rem;
+    margin: 0.3rem;
+  }
+}
