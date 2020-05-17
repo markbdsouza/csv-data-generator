@@ -75,9 +75,9 @@ body {
 .introduction button {
   z-index: 1;
   display: block;
-  width: 50%;
+  width: 40%;
   padding: 20px;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .introduction h1 {
@@ -86,11 +86,11 @@ body {
 }
 
 .introduction .intro-details {
-  width: 75%;
+  width: 40%;
   text-align: justify;
-  line-height: 1.4;
+  line-height: 1.7;
   font-size: 2rem;
-  padding: 30px 0 0;
+  padding: 3rem 0 2rem;
   color: white;
   z-index: 1;
 }
@@ -111,14 +111,13 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 2rem 5rem;
   background-image: var(--background-img);
   color: var(--secondary-color);
   font-weight: bold;
   transition: all 1s ease-in;
   transform: translateY(0);
-  font-size: 1.5rem;
-  padding: 0.5rem 3rem;
+  font-size: 2rem;
 }
 
 /* The main container holds the configuration and the table container*/
@@ -127,15 +126,48 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+}
+
+.main-container .quick-steps {
+  background-color: grey;
+  padding: 1.5rem 3rem;
+  border-radius: 1rem;
+}
+.main-container .quick-steps h3 {
+  font-size: 1.5rem;
+}
+
+.main-container .quick-steps li {
+  font-size: 1.5rem;
+  list-style: decimal;
+  margin-left: 1rem;
 }
 
 .config {
   padding: 2rem 3rem;
   border-radius: 1rem;
   margin-bottom: 1rem;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.config .row-count-input {
   display: flex;
   flex-direction: column;
+  padding: 5px;
   position: relative;
+}
+
+.config input {
+  margin-top: 0.5rem;
+  width: 80%;
+}
+
+.config .buttons {
+  margin-top: 1.5rem;
 }
 
 /* holds the entire table */
@@ -215,10 +247,6 @@ body {
   outline: 0;
 }
 
-.btn-container {
-  padding: 1rem;
-}
-
 .btn {
   padding: 1rem 3rem;
   margin: 1rem;
@@ -226,7 +254,7 @@ body {
   cursor: pointer;
   background-image: var(--background-img);
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   border: 0;
   border: 2px solid var(--btn-bg);
   transform: translateX(0);
@@ -239,19 +267,6 @@ body {
 .btn:focus {
   border: 2px solid var(--option-2-faded);
   transform: translateY(-5px);
-}
-
-footer {
-  width: 100%;
-  background-image: var(--background-img);
-  color: var(--secondary-color);
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: 1px solid;
-  padding: 1rem 0 0.5rem;
-  margin-top: 2rem;
 }
 
 .header {
@@ -432,14 +447,16 @@ input:focus,
   /* width: 600px;
   height: 300px; */
   /* top: 25%; */
-  justify-content: start;
-  align-items: flex-start;
+  justify-content: space-between;
+  /* align-items: flex-start; */
   margin: auto;
   background-color: rgba(255, 255, 255, 1);
   padding: 3rem;
   border-radius: 1rem;
   display: flex;
   position: relative;
+  width: 80%;
+  flex-wrap: wrap;
 }
 
 .select-input-background.show .select-input-container .close {
@@ -459,3 +476,46 @@ input:focus,
 .select-input-background.show .select-input-container .close:hover {
   transform: translateX(50%) translateY(-50%) scale(1.1);
 }
+
+/* Footer Start */
+
+footer {
+  width: 100%;
+  background-image: var(--background-img);
+  color: var(--secondary-color);
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid;
+  padding: 1rem 0 0.5rem;
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+footer i {
+  font-size: 3rem;
+  padding: 1rem 3rem;
+  color: var(--secondary-color);
+}
+
+footer .display-pic {
+  height: 10rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #393e46;
+  border-width: 3px;
+  margin-right: 3rem;
+}
+
+footer .contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .contact-details {
+  margin-top: 1rem;
+}
+
+/* Footer End */

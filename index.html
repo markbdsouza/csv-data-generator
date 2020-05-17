@@ -8,30 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
         integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="./style.css">
+
+
 </head>
 
 <body>
-    <div class="introduction hide">
+    <div class="introduction">
         <h1>CSV File Generator</h1>
         <p class='intro-details'>Welcome to the one stop solution for all your data generating needs
-            # Include GRID for use cases
             <br>
-            Are you looking to test your application and need a LOT of data to see how much your app can handle?
+            It's easy
             <br>
-            Or Maybe you are working on a report and need more source data?
+            &emsp;1. Add as many columns as you want
             <br>
-            Do you have a client demo and you dont want to display asdasd on qwerty as values in your data base?
+            &emsp; 2. Set the type of data you want for each column
             <br>
-            This app can help you achieve just that! It can create MEANGINGFUL data for your needs
+            &emsp;3. Put in the number of rows you want to generate
             <br>
-            NO INSTALLATIONS. NO SETUP. NO ADS. NO SIGNIN
+            &emsp;4. Generate the File
+            <br>
+            No Installations, No Sign-in, No hiccups.
 
             <br>
-            Fast simple effiecient.
-            <br>
-            FILL in what Data you want, and download! you're done !!
-            <br><br>
-            <small class="intro-footer">This works best on a laptop on a Chrome Browser</small>
+            <small class="intro-footer">This works best on a laptop on a Chrome/Firefox Browser</small>
         </p>
         <button class="btn" id='getStarted'>Get Started</button>
     </div>
@@ -40,20 +39,10 @@
     <div id="main-content">
         <div class="header-section cover">
             <h1>CSV File Generator</h1>
-            <div class="info">This tool makes it easy to generate meaningful data in a csv format </div>
+            <div class="info">Easy, Customizable, Open Source, Fast & Free</div>
         </div>
 
         <div class="main-container">
-            <h3>
-                How this works!
-            </h3>
-            <p>
-                1) Just enter the column names of the CSV file
-                2) select the type of Data
-                3) Add or Delete as many rows as you want!
-                4) Click Generate File
-            </p>
-
 
             <div class="data-input-container">
                 <div class="row header" id="tableColNames">
@@ -66,22 +55,25 @@
             <div class="columns">
             </div>
             <div class="config">
-                <label for="row-count">Number of Rows</label>
-                <input type="number" class="row-count" value="20" name="row-count" id="row-count" max="1000">
-                <div class="help-tip">
-                    <p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
+                <div class='row-count-input'>
+                    <label for="row-count">Number of Rows</label>
+                    <input type="number" class="row-count" value="20" name="row-count" id="row-count" max="1000">
+                    <div class="help-tip">
+                        <p>Enter the total number of rows that you want to generate</p>
+                    </div>
+                </div>
+                <div class='buttons'>
+                    <!-- <button class="btn" id="view-sample">View Sample</button> -->
+                    <button class="btn" id="generate-button">Generate File</button>
+                    <!-- <button class="btn" id="generate-SQL">Generate SQL Script</button> -->
                 </div>
             </div>
-            <div class="btn-container">
-                <!-- <button class="btn" id="view-sample">View Sample</button> -->
-                <button class="btn" id="generate-button">Generate File</button>
-                <!-- <button class="btn" id="generate-SQL">Generate SQL Script</button> -->
-            </div>
+
 
 
             <div class="additional-details">
                 <h3>Why generate test data?</h3>
-                <p>Unless you are in the preliminary stages of creating your application, you should always have a good
+                <p>You should always have a good
                     volume of mocked up data when testing your application. This will help catch performance issues in
                     your code
                     early on in the cycle as well as issues with the UI. Maybe you need to use a larger width to display
@@ -100,6 +92,9 @@
                 <p>The CSV Data Generator is Light, Easy and Customizable with absolutely NO registration. Other data
                     generators available either do not have the various options provided here OR try and get you to sign
                     in and pay for the more advanced features which are available here for absolutely free!!
+                    <br>
+                    This is a light-weight solution and all the data gets created entirely on the client side using
+                    Vanilla Javascript.
                 </p>
             </div>
 
@@ -107,19 +102,32 @@
 
         <div class="select-input-background">
             <div class="select-input-container">
-                <!-- <button class="btn selectOption" id="optionRandomString" data-value="randomString">Random
-                    String</button>
-                <button class="btn selectOption" id="optionRandomInteger" data-value='randomInteger'>Random
-                    Integer</button>
-                <button class="btn selectOption" id="optionSequence" data-value='index'>Sequence Generated
-                    Integer</button> -->
-                <button class="close" id="closeInputSelector">x</button>
-
+                <button class="close" id="closeInputSelector">X</button>
             </div>
         </div>
 
         <footer>
-            This was generated by Mark D'Souza
+            <section id="contact" class="contact">
+                <div class="profile-picture">
+                    <a href="http://www.markbdsouza.com" target="_blank">
+                        <img class="display-pic" src="images/Mark DSouza.jpeg" alt="Mark Dsouza">
+                    </a>
+                </div>
+                <div class="contact-section">
+                    <span class="">This open source application was developed by <br> Mark Dsouza and is available on
+                        github</span>
+                    <div class="contact-details">
+                        <a href="https://www.linkedin.com/in/mark-dsouza-44692095/" class="" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/MarkBDsouza" class="" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/markbdsouza/csv-data-generator" class="" target="_blank">
+                            <i class="fab fa-github"></i></a>
+
+                    </div>
+                </div>
+
+            </section>
         </footer>
     </div>
     <script src="./scripts/faker.js" type="text/javascript"></script>

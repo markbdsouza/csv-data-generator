@@ -1,5 +1,6 @@
 import { generateFile } from './filegeneration.js';
 import { createExcelRowData } from './datageneration.js';
+import { ALL_OPTIONS } from './options.js';
 
 const generateBtn = document.getElementById('generate-button');
 const rowCountEl = document.getElementById('row-count');
@@ -9,13 +10,11 @@ const getStarted = document.getElementById('getStarted');
 const mainContent = document.getElementById('main-content');
 const closeBtnForInputSelector = document.getElementById('closeInputSelector');
 const inputSelectorBkg = document.querySelector('.select-input-background');
-
-const ROWS_TO_START_WITH = 3;
-
 const selectInputContainer = document.querySelector('.select-input-container');
 
+const ROWS_TO_START_WITH = 4;
 let DOMrows = [];
-let i = 1;
+let i = 0;
 let selectedRow;
 
 function addValuesToOptions() {
@@ -38,16 +37,26 @@ function addValuesToOptions() {
   });
 }
 
+function returnGetDataFunction(selectedOptionName) {
+  let selectedOptionObject = ALL_OPTIONS.filter((option) => {
+    return option.value === selectedOptionName;
+  });
+  return selectedOptionObject[0].getData;
+}
+
 function fetchDOMValues() {
   let dataConfig = [];
   const rows = document.querySelectorAll('.row');
   rows.forEach((row, index) => {
     // to exclude the header which is the first row
-    console.log(row);
+
     if (index >= 1) {
       dataConfig.push({
         columnName: row.querySelector('.columnName').value,
         type: row.querySelector('.inputSelection').dataset.value,
+        getData: returnGetDataFunction(
+          row.querySelector('.inputSelection').dataset.value
+        ),
         maxLength: 100,
         minLength: 0,
         nullable: false,
@@ -63,7 +72,7 @@ function addToDOMRows(rowClicked) {
   newRow.classList.add('hide');
   newRow.innerHTML = `  
     <div class="column">
-      <input type="text" class="columnName" value="test${i + 1}">
+      <input type="text" class="columnName" value="COLUMN_${i + 1}">
     </div>
     <div class="column">
         <button class="inputSelection">Select <i class="fa fa-angle-down"></i> </button>
@@ -128,6 +137,7 @@ function fetchDataAndGenerateFile() {
   let rowCount = +rowCountEl.value;
   let dataConfig = fetchDOMValues();
   let rows = createExcelRowData(rowCount, dataConfig);
+  console.log(rows);
   generateFile(rows);
 }
 
@@ -143,42 +153,5 @@ closeBtnForInputSelector.addEventListener('click', () => {
 for (let i = 0; i < ROWS_TO_START_WITH; i++) {
   addToDOMRows();
 }
-loadMainContainer();
-
-const ALL_OPTIONS = [
-  {
-    name: 'Random String',
-    value: 'randomString',
-    // createData() {
-    //   let characters =
-    //     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    //   return characters[Math.floor(Math.random() * characters.length)];
-    // },
-  },
-  {
-    name: 'Sequence Generated Integer',
-    value: 'index',
-  },
-  {
-    name: 'Random Integer',
-    value: 'randomInteger',
-  },
-  {
-    name: 'Full Name',
-    value: 'fullName',
-  },
-  {
-    name: 'Address',
-    value: 'address',
-  },
-  {
-    name: 'Phone',
-    value: 'phone',
-  },
-  {
-    name: 'e-mail',
-    value: 'email',
-  },
-];
-
+// loadMainContainer();
 addValuesToOptions();

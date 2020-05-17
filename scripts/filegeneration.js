@@ -20,7 +20,11 @@ function downloadFile(csvFile, filename) {
 
 export function generateFile(rows) {
   let csvFile = '';
-  let filename = 'yougot.csv';
+  var d = new Date();
+
+  let filename = `${d.getFullYear()}_${
+    d.getMonth() + 1
+  }_${d.getDate()} ${d.getHours()}_${d.getMinutes()}.csv`;
   rows.forEach(function (rowArray) {
     let row = rowArray.join(',');
     csvFile += row + '\r\n';
