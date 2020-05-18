@@ -10,30 +10,36 @@ const getStarted = document.getElementById('getStarted');
 const mainContent = document.getElementById('main-content');
 const closeBtnForInputSelector = document.getElementById('closeInputSelector');
 const inputSelectorBkg = document.querySelector('.select-input-background');
-const selectInputContainer = document.querySelector('.select-input-container');
+const selectGroupingOptions = document.querySelector(
+  '.select-input-classification'
+);
+const selectInputContainer = document.querySelector('.select-input-options');
 
 const ROWS_TO_START_WITH = 8;
 let DOMrows = [];
 let i = 0;
 let selectedRow;
 
-function addValuesToOptions() {
+function addValuesToOptions(filter) {
+  selectInputContainer.innerHTML = '';
   ALL_OPTIONS.forEach((option) => {
-    let optionEl = document.createElement('button');
-    optionEl.classList.add('btn');
-    optionEl.classList.add('selectOption');
-    optionEl.dataset.value = option.value;
-    optionEl.innerText = option.name;
-    optionEl.addEventListener('click', (e) => {
-      //add value to current row
-      selectedRow.querySelector(
-        '.inputSelection'
-      ).innerHTML = `${e.target.textContent} <i class="fa fa-angle-down"></i>`;
-      selectedRow.querySelector('.inputSelection').dataset.value =
-        e.target.dataset.value;
-      inputSelectorBkg.classList.remove('show');
-    });
-    selectInputContainer.appendChild(optionEl);
+    if (!filter || option.type === filter) {
+      let optionEl = document.createElement('button');
+      optionEl.classList.add('btn');
+      optionEl.classList.add('selectOption');
+      optionEl.dataset.value = option.value;
+      optionEl.innerText = option.name;
+      optionEl.addEventListener('click', (e) => {
+        //add value to current row
+        selectedRow.querySelector(
+          '.inputSelection'
+        ).innerHTML = `${e.target.textContent} <i class="fa fa-angle-down"></i>`;
+        selectedRow.querySelector('.inputSelection').dataset.value =
+          e.target.dataset.value;
+        inputSelectorBkg.classList.remove('show');
+      });
+      selectInputContainer.appendChild(optionEl);
+    }
   });
 }
 
@@ -162,3 +168,22 @@ for (let i = 0; i < ROWS_TO_START_WITH; i++) {
   addToDOMRows();
 }
 addValuesToOptions();
+
+let GROUPED_OPTIONS = {};
+ALL_OPTIONS.forEach((option) => {
+  if (!GROUPED_OPTIONS[option.type]) {
+    GROUPED_OPTIONS[option.type] = [];
+  }
+  GROUPED_OPTIONS[option.type].push(option);
+});
+
+for (let key in GROUPED_OPTIONS) {
+  let group = document.createElement('div');
+  group.className = 'optionGroup';
+  group.innerText = `${key}(${GROUPED_OPTIONS[key].length})`;
+  group.addEventListener('click', () => {
+    console.log('clicked');
+    addValuesToOptions(key);
+  });
+  selectGroupingOptions.appendChild(group);
+}

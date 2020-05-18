@@ -415,14 +415,30 @@ input:focus,
   justify-content: space-between;
   margin: auto;
   background-color: rgba(255, 255, 255, 1);
-  padding: 3rem;
+  padding: 1rem;
   border-radius: 1rem;
   display: flex;
   position: relative;
   width: 70%;
-  flex-wrap: wrap;
   top: 20vh;
   position: absolute;
+}
+
+.optionGroup {
+  font-size: 2rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.select-input-container .selectOption {
+  margin: 0.3rem;
+  padding: 0.8rem 1.6rem;
+}
+
+.select-input-container .select-input-classification {
+  height: max-content;
+  width: 50%;
+  border-right: 3px solid var(--primary-color);
 }
 
 .select-input-background.show .select-input-container .close {
@@ -456,7 +472,7 @@ footer {
   justify-content: center;
   text-align: center;
   border: 1px solid;
-  padding: 1rem 0 0.5rem;
+  padding: 1rem 1rem 0.5rem 1rem;
   margin-top: 2rem;
   font-size: 2rem;
 }

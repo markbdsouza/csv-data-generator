@@ -1,9 +1,91 @@
 export const ALL_OPTIONS = [
+  // name
+  {
+    name: 'First Name',
+    value: 'firstName',
+    type: 'Name',
+    getData() {
+      return faker.name.firstName();
+    },
+  },
+  {
+    name: 'Last Name',
+    value: 'lastName',
+    type: 'Name',
+    getData() {
+      return faker.name.lastName();
+    },
+  },
+  {
+    name: 'Full Name',
+    value: 'findName',
+    type: 'Name',
+    getData() {
+      return faker.name.findName();
+    },
+  },
+  {
+    name: 'Job Title',
+    value: 'jobTitle',
+    type: 'Name',
+    getData() {
+      return faker.name.jobTitle();
+    },
+  },
+  {
+    name: 'Name Prefix',
+    value: 'prefix',
+    type: 'Name',
+    getData() {
+      return faker.name.prefix();
+    },
+  },
+  {
+    name: 'Name Suffix',
+    value: 'suffix',
+    type: 'Name',
+    getData() {
+      return faker.name.suffix();
+    },
+  },
+  {
+    name: 'Name Title',
+    value: 'title',
+    type: 'Name',
+    getData() {
+      return faker.name.title();
+    },
+  },
+  {
+    name: 'Job Descriptor',
+    value: 'jobDescriptor',
+    type: 'Name',
+    getData() {
+      return faker.name.jobDescriptor();
+    },
+  },
+  {
+    name: 'Job Area',
+    value: 'jobArea',
+    type: 'Name',
+    getData() {
+      return faker.name.jobArea();
+    },
+  },
+  {
+    name: 'Job Type',
+    value: 'jobType',
+    type: 'Name',
+    getData() {
+      return faker.name.jobType();
+    },
+  },
+
   //Address
   {
     name: 'Street Name',
     value: 'streetName',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.streetName();
     },
@@ -11,7 +93,7 @@ export const ALL_OPTIONS = [
   {
     name: 'Street Address',
     value: 'streetAddress',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.streetAddress();
     },
@@ -19,7 +101,7 @@ export const ALL_OPTIONS = [
   {
     name: 'Secondary Address',
     value: 'secondaryAddress',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.secondaryAddress();
     },
@@ -27,7 +109,7 @@ export const ALL_OPTIONS = [
   {
     name: 'Zip Code',
     value: 'zipCode',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.zipCode();
     },
@@ -35,7 +117,7 @@ export const ALL_OPTIONS = [
   {
     name: 'County',
     value: 'county',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.county();
     },
@@ -43,7 +125,7 @@ export const ALL_OPTIONS = [
   {
     name: 'City',
     value: 'city',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.city();
     },
@@ -51,7 +133,7 @@ export const ALL_OPTIONS = [
   {
     name: 'State',
     value: 'state',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.state();
     },
@@ -59,7 +141,7 @@ export const ALL_OPTIONS = [
   {
     name: 'State Abbr',
     value: 'stateAbbr',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.stateAbbr();
     },
@@ -67,7 +149,7 @@ export const ALL_OPTIONS = [
   {
     name: 'Country',
     value: 'country',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.country();
     },
@@ -75,7 +157,7 @@ export const ALL_OPTIONS = [
   {
     name: 'Country Code',
     value: 'countryCode',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.countryCode();
     },
@@ -83,7 +165,7 @@ export const ALL_OPTIONS = [
   {
     name: 'Latitude',
     value: 'latitude',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.latitude();
     },
@@ -91,34 +173,9 @@ export const ALL_OPTIONS = [
   {
     name: 'Longitude',
     value: 'longitude',
-    type: 'address',
+    type: 'Address',
     getData() {
       return faker.address.longitude();
-    },
-  },
-  //Commerce
-  {
-    name: 'Color',
-    value: 'color',
-    type: 'commerce',
-    getData() {
-      return faker.commerce.color();
-    },
-  },
-  {
-    name: 'price',
-    value: 'price',
-    type: 'commerce',
-    getData() {
-      return faker.commerce.price();
-    },
-  },
-  {
-    name: 'product',
-    value: 'product',
-    type: 'commerce',
-    getData() {
-      return faker.commerce.product();
     },
   },
   //Company
@@ -126,7 +183,8 @@ export const ALL_OPTIONS = [
   {
     name: 'Company Name',
     value: 'companyName',
-    type: 'company',
+    // type: 'company',
+    type: 'Finance',
     getData() {
       return faker.company.companyName();
     },
@@ -155,45 +213,112 @@ export const ALL_OPTIONS = [
   //       return faker.company.catchPhraseAdjective();
   //     },
   //   },
-  //database
-  {
-    name: 'column',
-    value: 'column',
-    type: 'database',
-    getData() {
-      return faker.database.column();
-    },
-  },
-  {
-    name: 'Data Base Type',
-    value: 'type',
-    type: 'database',
-    getData() {
-      return faker.database.type();
-    },
-  },
-  //   {
-  //     name: 'collation',
-  //     value: 'collation',
-  //     type: 'database',
-  //     getData() {
-  //       return faker.database.collation();
-  //     },
-  //   },
-  //   {
-  //     name: 'engine',
-  //     value: 'engine',
-  //     type: 'database',
-  //     getData() {
-  //       return faker.database.engine();
-  //     },
-  //   },
-  //Date
 
+  //finance
+  {
+    name: 'Account',
+    value: 'account',
+    type: 'Finance',
+    getData() {
+      return faker.finance.account();
+    },
+  },
+  {
+    name: 'Account Name',
+    value: 'accountName',
+    type: 'Finance',
+    getData() {
+      return faker.finance.accountName();
+    },
+  },
+  {
+    name: 'Currency Code',
+    value: 'currencyCode',
+    type: 'Finance',
+    getData() {
+      return faker.finance.currencyCode();
+    },
+  },
+
+  {
+    name: 'Currency Name',
+    value: 'currencyName',
+    type: 'Finance',
+    getData() {
+      return faker.finance.currencyName();
+    },
+  },
+  {
+    name: 'Currency Symbol',
+    value: 'currencySymbol',
+    type: 'Finance',
+    getData() {
+      return faker.finance.currencySymbol();
+    },
+  },
+  {
+    name: 'Bitcoin Address',
+    value: 'bitcoinAddress',
+    type: 'Finance',
+    getData() {
+      return faker.finance.bitcoinAddress();
+    },
+  },
+  {
+    name: 'IBAN',
+    value: 'iban',
+    type: 'Finance',
+    getData() {
+      return faker.finance.iban();
+    },
+  },
+  //internet
+  {
+    name: 'Email',
+    value: 'email',
+    type: 'Internet',
+    getData() {
+      return faker.internet.email();
+    },
+  },
+  {
+    name: 'User Name',
+    value: 'userName',
+    type: 'Internet',
+    getData() {
+      return faker.internet.userName();
+    },
+  },
+  {
+    name: 'URL',
+    value: 'url',
+    type: 'Internet',
+    getData() {
+      return faker.internet.url();
+    },
+  },
+  {
+    name: 'Domain Name',
+    value: 'domainName',
+    type: 'Internet',
+    getData() {
+      return faker.internet.domainName();
+    },
+  },
+  {
+    name: 'IP Address',
+    value: 'ip',
+    type: 'Internet',
+    getData() {
+      return faker.internet.ip();
+    },
+  },
+
+  //Date
   {
     name: 'Past Date',
     value: 'past',
-    type: 'date',
+    type: 'Date',
     getData() {
       return faker.date.past();
     },
@@ -201,7 +326,7 @@ export const ALL_OPTIONS = [
   {
     name: 'Future Date',
     value: 'future',
-    type: 'date',
+    type: 'Date',
     getData() {
       return faker.date.future();
     },
@@ -209,7 +334,7 @@ export const ALL_OPTIONS = [
   {
     name: 'Recent Date',
     value: 'recent',
-    type: 'date',
+    type: 'Date',
     getData() {
       return faker.date.recent();
     },
@@ -217,26 +342,49 @@ export const ALL_OPTIONS = [
   {
     name: 'Month',
     value: 'month',
-    type: 'date',
+    type: 'Date',
     getData() {
       return faker.date.month();
     },
   },
-
   {
     name: 'Weekday',
     value: 'weekday',
-    type: 'date',
+    type: 'Date',
     getData() {
       return faker.date.weekday();
     },
   },
+  //random
 
-  //////////OTHERS
+  {
+    name: 'Random UUID',
+    value: 'uuid',
+    type: 'Other',
+    getData() {
+      return faker.random.uuid();
+    },
+  },
+  {
+    name: 'Boolean',
+    value: 'boolean',
+    type: 'Other',
+    getData() {
+      return faker.random.boolean();
+    },
+  },
+  {
+    name: 'word',
+    value: 'word',
+    type: 'Other',
+    getData() {
+      return faker.random.word();
+    },
+  },
   {
     name: 'Random Character',
     value: 'randomCharacter',
-    type: 'other',
+    type: 'Other',
     getData() {
       let characters =
         'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -255,33 +403,79 @@ export const ALL_OPTIONS = [
   {
     name: 'Random Integer',
     value: 'randomInteger',
-    type: 'other',
+    type: 'Other',
     getData() {
       return Math.floor(Math.random() * 10000);
     },
   },
+
+  //Commerce
   {
-    name: 'Full Name',
-    value: 'fullName',
-    type: 'name',
+    name: 'Color',
+    value: 'color',
+    // type: 'commerce',
+    type: 'Other',
     getData() {
-      return faker.name.findName();
+      return faker.commerce.color();
     },
   },
+  // {
+  //   name: 'Price',
+  //   value: 'price',
+  //   type: 'commerce',
+  //   getData() {
+  //     return faker.commerce.price();
+  //   },
+  // },
+  {
+    name: 'Product',
+    value: 'product',
+    type: 'Other',
+    getData() {
+      return faker.commerce.product();
+    },
+  },
+  //database
+  // {
+  //   name: 'DataBase Column',
+  //   value: 'column',
+  //   type: 'database',
+  //   getData() {
+  //     return faker.database.column();
+  //   },
+  // },
+
+  {
+    name: 'Database Column Type',
+    value: 'type',
+    type: 'Other',
+    getData() {
+      return faker.database.type();
+    },
+  },
+  {
+    name: 'Database Collation',
+    value: 'collation',
+    type: 'Other',
+    getData() {
+      return faker.database.collation();
+    },
+  },
+  {
+    name: 'Database Engine',
+    value: 'engine',
+    type: 'Other',
+    getData() {
+      return faker.database.engine();
+    },
+  },
+
   {
     name: 'Phone',
     value: 'phone',
-    type: 'phone',
+    type: 'Other',
     getData() {
       return faker.phone.phoneNumber();
-    },
-  },
-  {
-    name: 'Email',
-    value: 'email',
-    type: 'internet',
-    getData() {
-      return faker.internet.email();
     },
   },
 ];
