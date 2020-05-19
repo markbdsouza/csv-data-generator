@@ -358,7 +358,7 @@ export const ALL_OPTIONS = [
   //random
 
   {
-    name: 'Random UUID',
+    name: 'UUID',
     value: 'uuid',
     type: 'Other',
     getData() {
